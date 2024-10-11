@@ -15,7 +15,6 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.datasets import make_s_curve, make_swiss_roll
 import tensorflow as tf
 from tensorflow.keras import layers
-from tqdm import tqdm
 import time
 
 #preparatory functions
@@ -109,6 +108,7 @@ class Autoencoder(tf.keras.Model):
         
         super().__init__()
         self.encoder = tf.keras.Sequential([
+            
             layers.Dense(100, activation = 'gelu'),
             layers.Dense(99, activation = 'gelu'),
             layers.Dense(98, activation = 'gelu'),
@@ -116,9 +116,11 @@ class Autoencoder(tf.keras.Model):
             layers.Dense(96, activation = 'gelu'),
             
             layers.Dense(code_dim, activation = 'gelu')
+            
             ])
             
         self.decoder = tf.keras.Sequential([
+            
             layers.Dense(96, activation = 'gelu'),
             layers.Dense(97, activation = 'gelu'),
             layers.Dense(98, activation = 'gelu'),
@@ -126,6 +128,7 @@ class Autoencoder(tf.keras.Model):
             layers.Dense(100, activation = 'gelu'),
             
             layers.Dense(3, activation = 'sigmoid')
+            
             ])
             
         
@@ -266,61 +269,54 @@ data4 = tf.constant(data4, dtype = 'float32')
 data5 = tf.constant(data5, dtype = 'float32')
 
 #autoencoders
-latent = [1, 2, 3]
-optional = [4, 5]
+latent = [1, 2]
+optional = [3, 4, 5]
 autoencoders = {}
 for l in latent + optional:
     autoencoders[l] = Autoencoder(l)
     autoencoders[l].compile(optimizer = 'adam', loss = 'mse')
 
 #learning
-histories1, elapsed1 = {}, {}
-histories2, elapsed2 = {}, {}
-histories3, elapsed3 = {}, {}
-histories4, elapsed4 = {}, {}
-histories5, elapsed5 = {}, {}
+histories1, elapsed1, reconstructions1 = {}, {}, {}
+histories2, elapsed2, reconstructions2 = {}, {}, {}
+histories3, elapsed3, reconstructions3 = {}, {}, {}
+histories4, elapsed4, reconstructions4 = {}, {}, {}
+histories5, elapsed5, reconstructions5 = {}, {}, {}
 for l in latent + optional:
     
     _begin = time.time()
     histories1[l] = autoencoders[l].fit(data1, data1, batch_size = 32, epochs = 50, shuffle = True)
     _end = time.time()
     elapsed1[l] = _end - _begin
+    reconstructions1[l] = autoencoders[l].call(data1)
     
     _begin = time.time()
     histories2[l] = autoencoders[l].fit(data2, data2, batch_size = 32, epochs = 50, shuffle = True)
     _end = time.time()
     elapsed2[l] = _end - _begin
+    reconstructions2[l] = autoencoders[l].call(data2)
     
     _begin = time.time()
     histories3[l] = autoencoders[l].fit(data3, data3, batch_size = 32, epochs = 50, shuffle = True)
     _end = time.time()
     elapsed3[l] = _end - _begin
+    reconstructions3[l] = autoencoders[l].call(data3)
     
     _begin = time.time()
     histories4[l] = autoencoders[l].fit(data4, data4, batch_size = 32, epochs = 50, shuffle = True)
     _end = time.time()
     elapsed4[l] = _end - _begin
+    reconstructions4[l] = autoencoders[l].call(data4)
     
     _begin = time.time()
     histories5[l] = autoencoders[l].fit(data5, data5, batch_size = 32, epochs = 50, shuffle = True)
     _end = time.time()
     elapsed5[l] = _end - _begin
+    reconstructions5[l] = autoencoders[l].call(data5)
     
 
 
 # - - plot - -
-
-reconstructions1 = {}
-reconstructions2 = {}
-reconstructions3 = {}
-reconstructions4 = {}
-reconstructions5 = {}
-for l in latent:
-    reconstructions1[l] = autoencoders[l].call(data1)
-    reconstructions2[l] = autoencoders[l].call(data2)
-    reconstructions3[l] = autoencoders[l].call(data3)
-    reconstructions4[l] = autoencoders[l].call(data4)
-    reconstructions5[l] = autoencoders[l].call(data5)
 
 fig1 = plt.figure(layout = 'constrained')
 _gs = fig1.add_gridspec(nrows = 2, ncols = 1)
