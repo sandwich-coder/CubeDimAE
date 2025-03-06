@@ -1,16 +1,6 @@
 # CubeDimAE
 
 
-### Objective
+### Description
 
-This algorithm aims to estimate the intrinsic dimension of a dataset to reduce the wasted effort finding the proper size of the latent space in designing an autoencoder.
-
-
-### Overview
-
-(overview diagram)
-
-
-### Grid Orientation
-
-This method is not intrinsically rotation-invariant. Instead, it uses the PCA to align the axes along the greatest variances, to stabilize the connections and ensure the rotation-invariance of the estimation result.
+This paper aims to reduce the wasted effort finding the proper size of the latent space in designing an autoencoder, by estimating in advance the intrinsic dimension of a dataset. The estimation process was inspired by how human interpolates discontinuous set of points and imagine a continuous analogue in his/her mind. This approach is in contrast with the traditional approaches, which assume the existence of some continuous manifold first and try to guess its dimension given a finite sample, the dataset at hand, from the manifold.
