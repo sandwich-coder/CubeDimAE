@@ -1,0 +1,11 @@
+#python3.12
+
+numpy
+scipy
+
+pandas
+tensorflow[and-cuda]
+matplotlib
+
+scikit-learn
+tqdm

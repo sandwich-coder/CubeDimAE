@@ -492,3 +492,5 @@ axes5_3.set_yticklabels([])
 axes5_3.set_zticklabels([])
 axes5_3.view_init(azim = 75, elev = 20)
 plot5_3 = axes5_3.scatter(reconstructions5[2][:, 0], reconstructions5[2][:, 1], reconstructions5[2][:, 2], c = 'green', alpha = 0.3)
+
+plt.show()
