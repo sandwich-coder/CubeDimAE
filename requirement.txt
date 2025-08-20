@@ -1,11 +1,11 @@
 #python3.12
 
-#necessary
+#essential
 numpy
 scipy
 matplotlib
 
-#default
+#basic
 pandas
 tensorflow[and-cuda]
 

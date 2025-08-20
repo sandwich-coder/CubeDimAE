@@ -272,8 +272,9 @@ for l in range(len(parses)):
     _axes.set_title('Dataset {num}'.format(num = 1+l))
     _axes.set_xlabel('tile size')
     _axes.set_ylabel('dimension')
-    _axes.hlines(estimated[l], 0.05, 0.95, linestyles = '--', colors = 'brown', label = 'estimated')
+    _axes.axhline(y = estimated[l], xmin = 0.05, xmax = 0.95, linestyle = '-.', color = 'brown', label = 'estimated')
     _plot = _axes.plot(_lengths, _dimensions_, color = 'green', marker = 'o', linestyle = '--')
+    _axes.legend()
 _fig.savefig('figures/tilesize_dependency.png', dpi = 300)
 
 
@@ -312,7 +313,7 @@ for l in latent + optional:
     _end = time.time()
     logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
     elapsed1[l] = _end - _begin
-    reconstructions1[l] = np.astype(autoencoders[l].predict(data1), 'float64')
+    reconstructions1[l] = autoencoders[l].predict(data1).astype('float64')
     
     logging.info('Dataset 2 ({latent}-dimensional compression)'.format(latent = l))
     _begin = time.time()
@@ -320,7 +321,7 @@ for l in latent + optional:
     _end = time.time()
     logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
     elapsed2[l] = _end - _begin
-    reconstructions2[l] = np.astype(autoencoders[l].predict(data2), 'float64')
+    reconstructions2[l] = autoencoders[l].predict(data2).astype('float64')
     
     logging.info('Dataset 3 ({latent}-dimensional compression)'.format(latent = l))
     _begin = time.time()
@@ -328,7 +329,7 @@ for l in latent + optional:
     _end = time.time()
     logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
     elapsed3[l] = _end - _begin
-    reconstructions3[l] = np.astype(autoencoders[l].predict(data3), 'float64')
+    reconstructions3[l] = autoencoders[l].predict(data3).astype('float64')
     
     logging.info('Dataset 4 ({latent}-dimensional compression)'.format(latent = l))
     _begin = time.time()
@@ -336,7 +337,7 @@ for l in latent + optional:
     _end = time.time()
     logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
     elapsed4[l] = _end - _begin
-    reconstructions4[l] = np.astype(autoencoders[l].predict(data4), 'float64')
+    reconstructions4[l] = autoencoders[l].predict(data4).astype('float64')
     
     logging.info('Dataset 5 ({latent}-dimensional compression)'.format(latent = l))
     _begin = time.time()
@@ -344,7 +345,7 @@ for l in latent + optional:
     _end = time.time()
     logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
     elapsed5[l] = _end - _begin
-    reconstructions5[l] = np.astype(autoencoders[l].predict(data5), 'float64')
+    reconstructions5[l] = autoencoders[l].predict(data5).astype('float64')
     
 
 
