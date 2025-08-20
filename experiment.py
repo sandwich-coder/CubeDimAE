@@ -217,33 +217,50 @@ for l in [data1, data2, data3, data4, data5]:
 
 # - - estimation - -
 
+estimated = []
+parses = []
+
 _begin = time.time()
 dimension1, parse1 = estimator.estimate(data1, return_parse = True)
 _end = time.time()
-duration1 = _end - _begin
+estimated.append(dimension1)
+parses.append(parse1)
+logging.info('Estimated: {estimated}'.format(estimated = dimension1))
+logging.info('    Lapse: {lapse:.2f} (s)'.format(lapse = _end - _begin))
 
 _begin = time.time()
 dimension2, parse2 = estimator.estimate(data2, return_parse = True)
 _end = time.time()
-duration2 = _end - _begin
+estimated.append(dimension2)
+parses.append(parse2)
+logging.info('Estimated: {estimated}'.format(estimated = dimension2))
+logging.info('    Lapse: {lapse:.2f} (s)'.format(lapse = _end - _begin))
 
 _begin = time.time()
 dimension3, parse3 = estimator.estimate(data3, return_parse = True)
 _end = time.time()
-duration3 = _end - _begin
+estimated.append(dimension3)
+parses.append(parse3)
+logging.info('Estimated: {estimated}'.format(estimated = dimension3))
+logging.info('    Lapse: {lapse:.2f} (s)'.format(lapse = _end - _begin))
 
 _begin = time.time()
 dimension4, parse4 = estimator.estimate(data4, return_parse = True)
 _end = time.time()
-duration4 = _end - _begin
+estimated.append(dimension4)
+parses.append(parse4)
+logging.info('Estimated: {estimated}'.format(estimated = dimension4))
+logging.info('    Lapse: {lapse:.2f} (s)'.format(lapse = _end - _begin))
 
 _begin = time.time()
 dimension5, parse5 = estimator.estimate(data5, return_parse = True)
 _end = time.time()
-duration5 = _end - _begin
+estimated.append(dimension5)
+parses.append(parse5)
+logging.info('Estimated: {estimated}'.format(estimated = dimension5))
+logging.info('    Lapse: {lapse:.2f} (s)'.format(lapse = _end - _begin))
 
 #parsing
-parses = [parse1, parse2, parse3, parse4, parse5]
 _fig = plt.figure(layout = 'constrained', figsize = (6, 12))
 _gs = _fig.add_gridspec(nrows = len(parses), ncols = 1)
 for l in range(len(parses)):
@@ -255,6 +272,7 @@ for l in range(len(parses)):
     _axes.set_title('Dataset {num}'.format(num = 1+l))
     _axes.set_xlabel('tile size')
     _axes.set_ylabel('dimension')
+    _axes.hlines(estimated[l], 0.05, 0.95, linestyles = '--', colors = 'brown', label = 'estimated')
     _plot = _axes.plot(_lengths, _dimensions_, color = 'green', marker = 'o', linestyle = '--')
 _fig.savefig('figures/tilesize_dependency.png', dpi = 300)
 
@@ -288,45 +306,45 @@ histories4, elapsed4, reconstructions4 = {}, {}, {}
 histories5, elapsed5, reconstructions5 = {}, {}, {}
 for l in latent + optional:
     
-    logging.info('- Dataset 1 ({latent}-dimensional compression) -'.format(latent = l))
+    logging.info('Dataset 1 ({latent}-dimensional compression)'.format(latent = l))
     _begin = time.time()
     histories1[l] = autoencoders[l].fit(data1, data1, batch_size = 32, epochs = 50, shuffle = True, verbose = 2)
     _end = time.time()
     logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
     elapsed1[l] = _end - _begin
-    reconstructions1[l] = autoencoders[l].call(data1)
+    reconstructions1[l] = np.astype(autoencoders[l].predict(data1), 'float64')
     
-    logging.info('- Dataset 2 ({latent}-dimensional compression) -'.format(latent = l))
+    logging.info('Dataset 2 ({latent}-dimensional compression)'.format(latent = l))
     _begin = time.time()
     histories2[l] = autoencoders[l].fit(data2, data2, batch_size = 32, epochs = 50, shuffle = True, verbose = 2)
     _end = time.time()
     logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
     elapsed2[l] = _end - _begin
-    reconstructions2[l] = autoencoders[l].call(data2)
+    reconstructions2[l] = np.astype(autoencoders[l].predict(data2), 'float64')
     
-    logging.info('- Dataset 3 ({latent}-dimensional compression) -'.format(latent = l))
+    logging.info('Dataset 3 ({latent}-dimensional compression)'.format(latent = l))
     _begin = time.time()
     histories3[l] = autoencoders[l].fit(data3, data3, batch_size = 32, epochs = 50, shuffle = True, verbose = 2)
     _end = time.time()
     logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
     elapsed3[l] = _end - _begin
-    reconstructions3[l] = autoencoders[l].call(data3)
+    reconstructions3[l] = np.astype(autoencoders[l].predict(data3), 'float64')
     
-    logging.info('- Dataset 4 ({latent}-dimensional compression) -'.format(latent = l))
+    logging.info('Dataset 4 ({latent}-dimensional compression)'.format(latent = l))
     _begin = time.time()
     histories4[l] = autoencoders[l].fit(data4, data4, batch_size = 32, epochs = 50, shuffle = True, verbose = 2)
     _end = time.time()
     logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
     elapsed4[l] = _end - _begin
-    reconstructions4[l] = autoencoders[l].call(data4)
+    reconstructions4[l] = np.astype(autoencoders[l].predict(data4), 'float64')
     
-    logging.info('- Dataset 5 ({latent}-dimensional compression) -'.format(latent = l))
+    logging.info('Dataset 5 ({latent}-dimensional compression)'.format(latent = l))
     _begin = time.time()
     histories5[l] = autoencoders[l].fit(data5, data5, batch_size = 32, epochs = 50, shuffle = True, verbose = 2)
     _end = time.time()
     logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
     elapsed5[l] = _end - _begin
-    reconstructions5[l] = autoencoders[l].call(data5)
+    reconstructions5[l] = np.astype(autoencoders[l].predict(data5), 'float64')
     
 
 
