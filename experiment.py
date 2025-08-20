@@ -300,11 +300,11 @@ for l in latent + optional:
     autoencoders[l].compile(optimizer = 'adam', loss = 'mse')
 
 #learning
-histories1, elapsed1, reconstructions1 = {}, {}, {}
-histories2, elapsed2, reconstructions2 = {}, {}, {}
-histories3, elapsed3, reconstructions3 = {}, {}, {}
-histories4, elapsed4, reconstructions4 = {}, {}, {}
-histories5, elapsed5, reconstructions5 = {}, {}, {}
+histories1, reconstructions1 = {}, {}
+histories2, reconstructions2 = {}, {}
+histories3, reconstructions3 = {}, {}
+histories4, reconstructions4 = {}, {}
+histories5, reconstructions5 = {}, {}
 for l in latent + optional:
     
     logging.info('Dataset 1 ({latent}-dimensional compression)'.format(latent = l))
@@ -312,40 +312,40 @@ for l in latent + optional:
     histories1[l] = autoencoders[l].fit(data1, data1, batch_size = 32, epochs = 50, shuffle = True, verbose = 2)
     _end = time.time()
     logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
-    elapsed1[l] = _end - _begin
-    reconstructions1[l] = autoencoders[l].predict(data1).astype('float64')
+    temp = autoencoders[l].predict(data1)
+    reconstructions1[l] = temp.astype('float64')
     
     logging.info('Dataset 2 ({latent}-dimensional compression)'.format(latent = l))
     _begin = time.time()
     histories2[l] = autoencoders[l].fit(data2, data2, batch_size = 32, epochs = 50, shuffle = True, verbose = 2)
     _end = time.time()
     logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
-    elapsed2[l] = _end - _begin
-    reconstructions2[l] = autoencoders[l].predict(data2).astype('float64')
+    temp = autoencoders[l].predict(data2)
+    reconstructions2[l] = temp.astype('float64')
     
     logging.info('Dataset 3 ({latent}-dimensional compression)'.format(latent = l))
     _begin = time.time()
     histories3[l] = autoencoders[l].fit(data3, data3, batch_size = 32, epochs = 50, shuffle = True, verbose = 2)
     _end = time.time()
     logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
-    elapsed3[l] = _end - _begin
-    reconstructions3[l] = autoencoders[l].predict(data3).astype('float64')
+    temp = autoencoders[l].predict(data3)
+    reconstructions3[l] = temp.astype('float64')
     
     logging.info('Dataset 4 ({latent}-dimensional compression)'.format(latent = l))
     _begin = time.time()
     histories4[l] = autoencoders[l].fit(data4, data4, batch_size = 32, epochs = 50, shuffle = True, verbose = 2)
     _end = time.time()
     logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
-    elapsed4[l] = _end - _begin
-    reconstructions4[l] = autoencoders[l].predict(data4).astype('float64')
+    temp = autoencoders[l].predict(data4)
+    reconstructions4[l] = temp.astype('float64')
     
     logging.info('Dataset 5 ({latent}-dimensional compression)'.format(latent = l))
     _begin = time.time()
     histories5[l] = autoencoders[l].fit(data5, data5, batch_size = 32, epochs = 50, shuffle = True, verbose = 2)
     _end = time.time()
     logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
-    elapsed5[l] = _end - _begin
-    reconstructions5[l] = autoencoders[l].predict(data5).astype('float64')
+    temp = autoencoders[l].predict(data5)
+    reconstructions5[l] = temp.astype('float64')
     
 
 
