@@ -1,4 +1,4 @@
-**/datasets
-**/figures
-**/__pycache__
 **/.DS_Store
+**/__pycache__
+**/figures
+**/datasets

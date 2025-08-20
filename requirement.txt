@@ -1,11 +1,16 @@
 #python3.12
 
+#necessary
 numpy
 scipy
-
-pandas
-tensorflow[and-cuda]
 matplotlib
 
-scikit-learn
+#default
+pandas
+tensorflow[and-cuda]
+
+#extra
 tqdm
+
+#supplementary
+scikit-learn

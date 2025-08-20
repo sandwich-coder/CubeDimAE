@@ -1,4 +1,8 @@
+import os
+
 import itertools
+import logging
+logging.basicConfig(level = 'INFO')
 import numpy as np
 import matplotlib
 from matplotlib import pyplot as plt
@@ -87,7 +91,10 @@ def voxel(data, length, return_colors = False, return_limits = True):
     return ret
 
 
+
 # - - construction - -
+
+os.makedirs('figures', exist_ok = True)
 
 estimator = CubeDim()
 
@@ -97,9 +104,9 @@ class Autoencoder(tf.keras.Model):
         if not isinstance(code_dim, int):
             raise TypeError('The compression dimension should be an integer.')
         if code_dim < 1:
-            raise ValueError('The compression dimension should be greater than 0.')
-        
+            raise ValueError('The compression dimension should be greater than 0.')        
         super().__init__()
+
         self.encoder = tf.keras.Sequential([
             
             layers.Dense(100, activation = 'gelu'),
@@ -129,7 +136,7 @@ class Autoencoder(tf.keras.Model):
         if not tf.is_tensor(data):
             raise TypeError('The dataset is not a \'tensorflow.Tensor\'.')
         if data.dtype != tf.float32:
-            raise AttributeError('The dataset is not of \'tensorflow.float32\'.')
+            raise ValueError('The dataset is not of \'tensorflow.float32\'.')
         
         mins = tf.math.reduce_min(data, axis = 0, keepdims = True)
         maxs = tf.math.reduce_max(data, axis = 0, keepdims = True)
@@ -237,7 +244,7 @@ duration5 = _end - _begin
 
 #parsing
 parses = [parse1, parse2, parse3, parse4, parse5]
-_fig = plt.figure(layout = 'constrained')
+_fig = plt.figure(layout = 'constrained', figsize = (6, 12))
 _gs = _fig.add_gridspec(nrows = len(parses), ncols = 1)
 for l in range(len(parses)):
     _lengths = parses[l][:, 0].copy()
@@ -245,7 +252,11 @@ for l in range(len(parses)):
     _dimensions_ = np.log(np.float64(1) + _connections) / np.log(np.float64(3))
     _axes = _fig.add_subplot(_gs[l])
     _axes.set_box_aspect(0.2)
-    _plot = _axes.plot(_lengths, _dimensions_, color = 'green')
+    _axes.set_title('Dataset {num}'.format(num = 1+l))
+    _axes.set_xlabel('tile size')
+    _axes.set_ylabel('dimension')
+    _plot = _axes.plot(_lengths, _dimensions_, color = 'green', marker = 'o', linestyle = '--')
+_fig.savefig('figures/tilesize_dependency.png', dpi = 300)
 
 
 
@@ -262,8 +273,8 @@ data4 = tf.constant(data4, dtype = 'float32')
 data5 = tf.constant(data5, dtype = 'float32')
 
 #autoencoders
-latent = [1, 2]
-optional = [3, 4, 5]
+latent = [1, 2, 3]
+optional = [4, 5]
 autoencoders = {}
 for l in latent + optional:
     autoencoders[l] = Autoencoder(l)
@@ -277,39 +288,52 @@ histories4, elapsed4, reconstructions4 = {}, {}, {}
 histories5, elapsed5, reconstructions5 = {}, {}, {}
 for l in latent + optional:
     
+    logging.info('- Dataset 1 ({latent}-dimensional compression) -'.format(latent = l))
     _begin = time.time()
-    histories1[l] = autoencoders[l].fit(data1, data1, batch_size = 32, epochs = 50, shuffle = True)
+    histories1[l] = autoencoders[l].fit(data1, data1, batch_size = 32, epochs = 50, shuffle = True, verbose = 2)
     _end = time.time()
+    logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
     elapsed1[l] = _end - _begin
     reconstructions1[l] = autoencoders[l].call(data1)
     
+    logging.info('- Dataset 2 ({latent}-dimensional compression) -'.format(latent = l))
     _begin = time.time()
-    histories2[l] = autoencoders[l].fit(data2, data2, batch_size = 32, epochs = 50, shuffle = True)
+    histories2[l] = autoencoders[l].fit(data2, data2, batch_size = 32, epochs = 50, shuffle = True, verbose = 2)
     _end = time.time()
+    logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
     elapsed2[l] = _end - _begin
     reconstructions2[l] = autoencoders[l].call(data2)
     
+    logging.info('- Dataset 3 ({latent}-dimensional compression) -'.format(latent = l))
     _begin = time.time()
-    histories3[l] = autoencoders[l].fit(data3, data3, batch_size = 32, epochs = 50, shuffle = True)
+    histories3[l] = autoencoders[l].fit(data3, data3, batch_size = 32, epochs = 50, shuffle = True, verbose = 2)
     _end = time.time()
+    logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
     elapsed3[l] = _end - _begin
     reconstructions3[l] = autoencoders[l].call(data3)
     
+    logging.info('- Dataset 4 ({latent}-dimensional compression) -'.format(latent = l))
     _begin = time.time()
-    histories4[l] = autoencoders[l].fit(data4, data4, batch_size = 32, epochs = 50, shuffle = True)
+    histories4[l] = autoencoders[l].fit(data4, data4, batch_size = 32, epochs = 50, shuffle = True, verbose = 2)
     _end = time.time()
+    logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
     elapsed4[l] = _end - _begin
     reconstructions4[l] = autoencoders[l].call(data4)
     
+    logging.info('- Dataset 5 ({latent}-dimensional compression) -'.format(latent = l))
     _begin = time.time()
-    histories5[l] = autoencoders[l].fit(data5, data5, batch_size = 32, epochs = 50, shuffle = True)
+    histories5[l] = autoencoders[l].fit(data5, data5, batch_size = 32, epochs = 50, shuffle = True, verbose = 2)
     _end = time.time()
+    logging.info('Elapsed: {lapse:.2f} s'.format(lapse = _end - _begin))
     elapsed5[l] = _end - _begin
     reconstructions5[l] = autoencoders[l].call(data5)
     
 
 
 # - - plot - -
+
+os.makedirs('figures/reconstructions', exist_ok = True)
+color = ['red', 'green', 'burlywood', 'cyan', 'pink']
 
 fig1 = plt.figure(layout = 'constrained')
 _gs = fig1.add_gridspec(nrows = 2, ncols = 1)
@@ -320,11 +344,10 @@ axes1_1.set_box_aspect(0.5)
 axes1_1.set_title('Training Loss')
 axes1_1.set_xlabel('epoch')
 axes1_1.set_ylabel('loss')
-plot1_1_1 = axes1_1.plot(histories1[1].history['loss'], color = 'red', label = '1-dimensional')
-plot1_1_2 = axes1_1.plot(histories1[2].history['loss'], color = 'green', label = '2-dimensional')
-plot1_1_3 = axes1_1.plot(histories1[3].history['loss'], color = 'burlywood', label = '3-dimensional')
-plot1_1_4 = axes1_1.plot(histories1[4].history['loss'], color = 'cyan', label = '4-dimensional')
-plot1_1_5 = axes1_1.plot(histories1[5].history['loss'], color = 'pink', label = '5-dimensional')
+plot1_1 = []
+for l in latent + optional:
+    temp = axes1_1.plot(histories1[l].history['loss'], color = color[-1+l], label = '{latent_dim}-dimensional'.format(latent_dim = l))
+    plot1_1.append(temp)
 axes1_1.legend()
 
 _xlim, _ylim, _zlim = limit(data1.numpy())
@@ -348,6 +371,7 @@ axes1_3.set_yticklabels([])
 axes1_3.set_zticklabels([])
 axes1_3.view_init(azim = 75, elev = 20)
 plot1_3 = axes1_3.scatter(reconstructions1[2][:, 0], reconstructions1[2][:, 1], reconstructions1[1][:, 2], c = 'green', alpha = 0.3)
+fig1.savefig('figures/reconstructions/1.png', dpi = 300)
 
 fig2 = plt.figure(layout = 'constrained')
 _gs = fig2.add_gridspec(nrows = 2, ncols = 1)
@@ -356,11 +380,12 @@ _gs_1 = _gs[1].subgridspec(nrows = 1, ncols = 2)
 axes2_1 = fig2.add_subplot(_gs[0])
 axes2_1.set_box_aspect(0.5)
 axes2_1.set_title('Training Loss')
-plot2_1_1 = axes2_1.plot(histories2[1].history['loss'], color = 'red', label = '1-dimensional compression')
-plot2_1_2 = axes2_1.plot(histories2[2].history['loss'], color = 'green', label = '2-dimensional compression')
-plot2_1_3 = axes2_1.plot(histories2[3].history['loss'], color = 'burlywood', label = '3-dimensional')
-plot2_1_4 = axes2_1.plot(histories2[4].history['loss'], color = 'cyan', label = '4-dimensional')
-plot2_1_5 = axes2_1.plot(histories2[5].history['loss'], color = 'pink', label = '5-dimensional')
+axes2_1.set_xlabel('epoch')
+axes2_1.set_ylabel('loss')
+plot2_1 = []
+for l in latent + optional:
+    temp = axes2_1.plot(histories2[l].history['loss'], color = color[-1+l], label = '{latent_dim}-dimensional'.format(latent_dim = l))
+    plot2_1.append(temp)
 axes2_1.legend()
 
 _xlim, _ylim, _zlim = limit(data2.numpy())
@@ -384,6 +409,7 @@ axes2_3.set_yticklabels([])
 axes2_3.set_zticklabels([])
 axes2_3.view_init(azim = 75, elev = 20)
 plot2_3 = axes2_3.scatter(reconstructions2[2][:, 0], reconstructions2[2][:, 1], reconstructions2[2][:, 2], c = 'green', alpha = 0.3)
+fig2.savefig('figures/reconstructions/2.png', dpi = 300)
 
 fig3 = plt.figure(layout = 'constrained')
 _gs = fig3.add_gridspec(nrows = 2, ncols = 1)
@@ -392,11 +418,12 @@ _gs_1 = _gs[1].subgridspec(nrows = 1, ncols = 2)
 axes3_1 = fig3.add_subplot(_gs[0])
 axes3_1.set_box_aspect(0.5)
 axes3_1.set_title('Training Loss')
-plot3_1_1 = axes3_1.plot(histories3[1].history['loss'], color = 'red', label = '1-dimensional compression')
-plot3_1_2 = axes3_1.plot(histories3[2].history['loss'], color = 'green', label = '2-dimensional compression')
-plot3_1_3 = axes3_1.plot(histories3[3].history['loss'], color = 'burlywood', label = '3-dimensional')
-plot3_1_4 = axes3_1.plot(histories3[4].history['loss'], color = 'cyan', label = '4-dimensional')
-plot3_1_5 = axes3_1.plot(histories3[5].history['loss'], color = 'pink', label = '5-dimensional')
+axes3_1.set_xlabel('epoch')
+axes3_1.set_ylabel('loss')
+plot3_1 = []
+for l in latent + optional:
+    temp = axes3_1.plot(histories3[l].history['loss'], color = color[-1+l], label = '{latent_dim}-dimensional'.format(latent_dim = l))
+    plot3_1.append(temp)
 axes3_1.legend()
 
 _xlim, _ylim, _zlim = limit(data3.numpy())
@@ -420,6 +447,7 @@ axes3_3.set_yticklabels([])
 axes3_3.set_zticklabels([])
 axes3_3.view_init(azim = 75, elev = 20)
 plot3_3 = axes3_3.scatter(reconstructions3[2][:, 0], reconstructions3[2][:, 1], reconstructions3[2][:, 2], c = 'green', alpha = 0.3)
+fig3.savefig('figures/reconstructions/3.png', dpi = 300)
 
 fig4 = plt.figure(layout = 'constrained')
 _gs = fig4.add_gridspec(nrows = 2, ncols = 1)
@@ -428,11 +456,12 @@ _gs_1 = _gs[1].subgridspec(nrows = 1, ncols = 2)
 axes4_1 = fig4.add_subplot(_gs[0])
 axes4_1.set_box_aspect(0.5)
 axes4_1.set_title('Training Loss')
-plot4_1_1 = axes4_1.plot(histories4[1].history['loss'], color = 'red', label = '1-dimensional compression')
-plot4_1_2 = axes4_1.plot(histories4[2].history['loss'], color = 'green', label = '2-dimensional compression')
-plot4_1_3 = axes4_1.plot(histories4[3].history['loss'], color = 'burlywood', label = '3-dimensional')
-plot4_1_4 = axes4_1.plot(histories4[4].history['loss'], color = 'cyan', label = '4-dimensional')
-plot4_1_5 = axes4_1.plot(histories4[5].history['loss'], color = 'pink', label = '5-dimensional')
+axes4_1.set_xlabel('epoch')
+axes4_1.set_ylabel('loss')
+plot4_1 = []
+for l in latent + optional:
+    temp = axes4_1.plot(histories4[l].history['loss'], color = color[-1+l], label = '{latent_dim}-dimensional'.format(latent_dim = l))
+    plot4_1.append(temp)
 axes4_1.legend()
 
 _xlim, _ylim, _zlim = limit(data4.numpy())
@@ -456,6 +485,7 @@ axes4_3.set_yticklabels([])
 axes4_3.set_zticklabels([])
 axes4_3.view_init(azim = 75, elev = 20)
 plot4_3 = axes4_3.scatter(reconstructions4[2][:, 0], reconstructions4[2][:, 1], reconstructions4[2][:, 2], c = 'green', alpha = 0.3)
+fig4.savefig('figures/reconstructions/4.png', dpi = 300)
 
 fig5 = plt.figure(layout = 'constrained')
 _gs = fig5.add_gridspec(nrows = 2, ncols = 1)
@@ -464,11 +494,12 @@ _gs_1 = _gs[1].subgridspec(nrows = 1, ncols = 2)
 axes5_1 = fig5.add_subplot(_gs[0])
 axes5_1.set_box_aspect(0.5)
 axes5_1.set_title('Training Loss')
-plot5_1_1 = axes5_1.plot(histories5[1].history['loss'], color = 'red', label = '1-dimensional compression')
-plot5_1_2 = axes5_1.plot(histories5[2].history['loss'], color = 'green', label = '2-dimensional compression')
-plot5_1_3 = axes5_1.plot(histories5[3].history['loss'], color = 'burlywood', label = '3-dimensional')
-plot5_1_4 = axes5_1.plot(histories5[4].history['loss'], color = 'cyan', label = '4-dimensional')
-plot5_1_5 = axes5_1.plot(histories5[5].history['loss'], color = 'pink', label = '5-dimensional')
+axes5_1.set_xlabel('epoch')
+axes5_1.set_ylabel('loss')
+plot5_1 = []
+for l in latent + optional:
+    temp = axes5_1.plot(histories5[l].history['loss'], color = color[-1+l], label = '{latent_dim}-dimensional'.format(latent_dim = l))
+    plot5_1.append(temp)
 axes5_1.legend()
 
 _xlim, _ylim, _zlim = limit(data5.numpy())
@@ -492,5 +523,4 @@ axes5_3.set_yticklabels([])
 axes5_3.set_zticklabels([])
 axes5_3.view_init(azim = 75, elev = 20)
 plot5_3 = axes5_3.scatter(reconstructions5[2][:, 0], reconstructions5[2][:, 1], reconstructions5[2][:, 2], c = 'green', alpha = 0.3)
-
-plt.show()
+fig5.savefig('figures/reconstructions/5.png', dpi = 300)
