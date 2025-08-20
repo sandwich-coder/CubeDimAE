@@ -49,7 +49,7 @@ class CubeDim:
         lengths = np.linspace(scale * np.float64(0.01), scale * np.float64(0.1), num = 10, dtype = 'float64')
         
         connections = []
-        for lll in tqdm(lengths, colour = 'magenta', ncols = 70):
+        for lll in tqdm(lengths, ncols = 70, leave = False):
             nodes = np.round(data / lll)
             nodes = nodes.astype('int8', copy = False)
             nodes, counts = np.unique(nodes, axis = 0, return_counts = True)
