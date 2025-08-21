@@ -9,7 +9,7 @@ This is in contrast to the traditional approaches, which first assume the existe
 and try to guess the dimension of the manifold by examining various statistical properties of the sample.
 
 
-### Description
+### Files
 
  - **cubedimae.pdf**: The paper published at BigComp2025 on February.
  - **cube_dim.py**: The implementation of the algorithm.
