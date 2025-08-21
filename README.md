@@ -46,4 +46,12 @@ The rationale behind the expression is described in the paper in detail.
 ### Datasets
 
 
+The datasets used in the experiment are as follows:
+1. S-curve
+2. Swiss roll
+3. Mobius strip
+4. Hollow sphere
+5. Solid sphere
+
+
 !['readme_figures/datasets.png' not found](readme_figures/datasets.png)
