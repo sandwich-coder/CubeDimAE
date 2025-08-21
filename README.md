@@ -16,7 +16,9 @@ and try to guess the dimension of the manifold by examining various statistical 
  - *experiment.py*: The experiment script used for the paper.
  - requirement.txt: The packages used for the implementation and experiment.
 
-
+&nbsp;
+&nbsp;
+&nbsp;
 ### Algorithm Overview
 
 ![](readme_figures/overview.png)
