@@ -43,7 +43,7 @@ To describe the algorithm in an intuitive manner,
 The rationale behind the expression is described in the paper in detail.
 
 
-![](readme_figures/overview.png)
+!['readme_figures/overview.png' not found](readme_figures/overview.png)
 
 
 
@@ -51,8 +51,4 @@ The rationale behind the expression is described in the paper in detail.
 
 
 
-### Network Configuration
-
-
-
-### Result
+### Evaluation
