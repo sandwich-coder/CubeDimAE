@@ -17,7 +17,7 @@ and try to guess the dimension of the manifold by examining various statistical 
 
  - **cubedimae.pdf**: The paper published at **BigComp2025** on February.
  - **cube_dim.py**: The implementation of the algorithm.
- - *experiment.py*: The experiment script used for the paper.
+ - *experiment.py*: The experiment script used for the paper. `python experiment.py`
  - requirement.txt: The packages used for the implementation and experiment.
 
 
