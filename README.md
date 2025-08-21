@@ -26,5 +26,6 @@ To describe the algorithm in an intuitive manner,
 2. "Color" the non-empty regions.
 4. Count the adjacent cubes for every cube.
 5. If the average count is near `3 ** k - 1`, we conclude the intrinsic dimension is *k*.
+The rationale behind the expression is described in the paper in detail.
 
 ![](readme_figures/overview.png)
