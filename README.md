@@ -25,11 +25,7 @@ and try to guess the dimension of the manifold by examining various statistical 
 &nbsp;
 &nbsp;
 &nbsp;
-## Algorithm
-
-
-
-### Overview
+### Algorithm Overview
 
 
 
