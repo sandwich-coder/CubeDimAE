@@ -19,7 +19,7 @@ and try to guess the dimension of the manifold by examining various statistical 
 &nbsp;
 &nbsp;
 &nbsp;
-### Algorithm Overview
+## Algorithm Overview
 
 To describe the algorithm in an intuitive manner,
 1. Introduce a cubic grid on the data space.
