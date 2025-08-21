@@ -7,7 +7,8 @@ matplotlib
 
 #basic
 pandas
-tensorflow[and-cuda]
+tensorflow[and-cuda]; sys_platform == 'linux'
+tensorflow; sys_platform == 'darwin'
 
 #extra
 tqdm
