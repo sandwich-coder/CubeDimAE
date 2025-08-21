@@ -15,3 +15,6 @@ and try to guess the dimension of the manifold by examining various statistical 
  - **cube_dim.py**: The implementation of the algorithm.
  - *experiment.py*: The experiment script used for the paper.
  - requirement.txt: The packages used for the implementation and experiment.
+
+
+### Algorithm Overview
