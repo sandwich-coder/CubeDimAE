@@ -44,11 +44,3 @@ The rationale behind the expression is described in the paper in detail.
 
 
 !['readme_figures/overview.png' not found](readme_figures/overview.png)
-
-
-
-### Datasets
-
-
-
-### Evaluation
