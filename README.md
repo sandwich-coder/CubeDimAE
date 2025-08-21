@@ -19,4 +19,4 @@ and try to guess the dimension of the manifold by examining various statistical 
 
 ### Algorithm Overview
 
-!readme_figures/overview.png
+![](readme_figures/overview.png)
