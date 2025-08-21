@@ -21,4 +21,10 @@ and try to guess the dimension of the manifold by examining various statistical 
 &nbsp;
 ### Algorithm Overview
 
+To describe the algorithm in an intuitive manner,
+1. Introduce a cubic grid on the data space.
+2. "Color" the non-empty regions.
+4. Count the adjacent cubes for every cube.
+5. If the average count is near `3 ** k - 1`, we conclude the intrinsic dimension is *k*.
+
 ![](readme_figures/overview.png)
