@@ -20,12 +20,8 @@ mpl.rcParams.update({
     })
 
 import pandas as pd
-import torch
-from torch import optim, nn
-import xgboost as xgb
-from rich.console import Console
-from rich.text import Text
-from rich.table import Table
+import tensorflow as tf
+from tensorflow.keras import layers
 
 from sklearn.datasets import make_moons
 from sklearn.datasets import make_s_curve, make_swiss_roll
