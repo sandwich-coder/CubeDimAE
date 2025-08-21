@@ -46,12 +46,15 @@ The rationale behind the expression is described in the paper in detail.
 ### Datasets
 
 
-The datasets used in the experiment are as follows:
-1. S-curve
-2. Swiss roll
-3. Mobius strip
-4. Hollow sphere
-5. Solid sphere
+Datasets used in the experiment are as follows:
+
+1. S-curve (2-dimensional)
+2. Swiss roll (2-dimensional)
+3. Mobius strip (2-dimensional)
+4. Hollow sphere (2-dimensional)
+5. Solid sphere (3-dimensional)
+
+They are toy datasets whose complexities, or intrinsic dimensions, we all agree on.
 
 
 !['readme_figures/datasets.png' not found](readme_figures/datasets.png)
