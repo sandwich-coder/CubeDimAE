@@ -25,7 +25,12 @@ and try to guess the dimension of the manifold by examining various statistical 
 &nbsp;
 &nbsp;
 &nbsp;
-## Algorithm Overview
+## Algorithm
+
+
+
+### Overview
+
 
 
 To describe the algorithm in an intuitive manner,
@@ -39,3 +44,15 @@ The rationale behind the expression is described in the paper in detail.
 
 
 ![](readme_figures/overview.png)
+
+
+
+### Datasets
+
+
+
+### Network Configuration
+
+
+
+### Result
