@@ -94,7 +94,7 @@ def voxel(data, length, return_colors = False, return_limits = True):
 
 
 
-# - - construction - -
+# - construction -
 
 os.makedirs('figures', exist_ok = True)
 
@@ -157,7 +157,7 @@ class Autoencoder(tf.keras.Model):
         
 
 
-# - - data - -
+# - data -
 
 #s curve <2-dimensional)>
 data1 = make_s_curve(n_samples = 3200, random_state = 1)[0]
@@ -217,7 +217,7 @@ for l in [data1, data2, data3, data4, data5]:
 ' ========== estimation ========== '
 
 
-# - - estimation - -
+# - estimation -
 
 estimated = []
 parses = []
@@ -284,7 +284,7 @@ _fig.savefig('figures/tilesize_dependency.png', dpi = 300)
 ' ========== training and comparison ========== '
 
 
-# - - training - -
+# - training -
 
 #to Tensors
 data1 = tf.constant(data1, dtype = 'float32')
@@ -351,7 +351,7 @@ for l in latent + optional:
     
 
 
-# - - plot - -
+# - plot -
 
 os.makedirs('figures/reconstructions', exist_ok = True)
 color = ['red', 'green', 'burlywood', 'cyan', 'pink']
