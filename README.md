@@ -67,7 +67,7 @@ They are toy datasets whose complexities, or intrinsic dimensions, we all agree 
 ### Accuracy
 
 
-The dimension estimation algorithm correctly estimated the dimensions of all the datasets.
+The algorithm correctly estimated the dimensions of all the datasets.
 
 !['readme_materials/readme_figures/accuracy.png' not found](readme_materials/readme_figures/accuracy.png)
 
