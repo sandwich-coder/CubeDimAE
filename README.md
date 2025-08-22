@@ -25,7 +25,6 @@ As a proof-of-concept(PoC), this paper aims to reduce the wasted effort finding 
 ### Algorithm Overview
 
 
-
 To describe the algorithm in an intuitive manner,
 
 1. Introduce a cubic grid on the data space.
@@ -55,3 +54,10 @@ They are toy datasets whose complexities, or intrinsic dimensions, we all agree 
 
 
 !['readme_materials/readme_figures/datasets.png' not found](readme_materials/readme_figures/datasets.png)
+
+
+
+### Evaluation
+
+
+!['readme_materials/readme_figures/evaluation.png' not found](readme_materials/readme_figures/evaluation.png)
