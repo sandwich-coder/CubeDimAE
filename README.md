@@ -9,6 +9,13 @@ As a proof-of-concept(PoC), this paper aims to reduce the wasted effort finding 
 
 
 
+### Contribution
+
+
+We propose a method to method to estimate the intrinsic dimension of a dataset, which is known to be the optimal latent dimension of an autoencoder, and automatically design an optimal autoencoder.
+
+
+
 ### Files
 
 
