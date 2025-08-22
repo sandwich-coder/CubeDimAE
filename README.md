@@ -25,6 +25,7 @@ We propose a method to estimate the intrinsic dimension of a dataset, which is k
  - cube_dim.py: The implementation of the algorithm.
  - experiment.py: The experiment script used for the paper. `python experiment.py`
  - requirement.txt: The packages used for the implementation and experiment.
+ - readme_materials: The figures and plotting script for this README.
 
 
 
