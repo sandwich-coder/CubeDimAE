@@ -21,7 +21,6 @@ As a proof-of-concept(PoC), this paper aims to reduce the wasted effort finding 
 
 &nbsp;
 &nbsp;
-&nbsp;
 ### Algorithm Overview
 &nbsp;
 
