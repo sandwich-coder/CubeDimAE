@@ -49,7 +49,7 @@ The rationale behind the expression is described in the paper in detail.
 ### Datasets
 
 
-Datasets used in the experiment are as follows:
+Datasets used are as follows:
 
 1. S-curve (2-dimensional)
 2. Swiss roll (2-dimensional)
