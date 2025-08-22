@@ -21,7 +21,7 @@ We propose a method to method to estimate the intrinsic dimension of a dataset, 
 ### Files
 
 
- - __**cubedimae.pdf**__: The paper published at **BigComp2025** on February.
+ - __cubedimae.pdf__: The paper published at **BigComp2025** on February.
  - cube_dim.py: The implementation of the algorithm.
  - experiment.py: The experiment script used for the paper. `python experiment.py`
  - requirement.txt: The packages used for the implementation and experiment.
