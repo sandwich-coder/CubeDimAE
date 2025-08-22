@@ -148,7 +148,7 @@ for l in datasets.keys():
         datasets[l][:, 0],
         datasets[l][:, 1],
         datasets[l][:, 2],
-        color = '#36454F',
+        color = '#c2b9d4',
         )
     fig.savefig('figures/{name}'.format(name = l), dpi = 600)
     
