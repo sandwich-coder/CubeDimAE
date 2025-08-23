@@ -9,14 +9,17 @@ from scipy import linalg as la
 import matplotlib as mpl
 from matplotlib import pyplot as pp
 mpl.rcParams.update({
-    'figure.figsize':(10, 10),
-    'axes.titlesize':'medium',
-    'axes.labelsize':'x-small',
-    'xtick.labelsize':'xx-small',
-    'ytick.labelsize':'xx-small',
-    'legend.fontsize':'x-small',
+    'figure.figsize':[10, 10],
+    'figure.edgecolor':'none',
+    'figure.facecolor':'none',
+    'axes.spines.top':False,
+    'axes.spines.right':False,
+    'axes.edgecolor':'none',
+    'axes.facecolor':'none',
     'lines.markersize':1,
     'lines.linewidth':0.5,
+    'legend.edgecolor':'none',
+    'legend.facecolor':'none',
     })
 
 import pandas as pd
@@ -57,14 +60,12 @@ ax.set_box_aspect(1)
 ax.set_aspect(2)
 ax.set_xticks([])
 ax.set_yticks([])
-ax.spines[:].set_visible(False)
 plot = ax.plot(
     moons[:, 0], moons[:, 1],
     marker = 'o', markersize = 10,
     linestyle = '',
-    color = 'cyan',
     )
-fig.savefig('figures/moons_.png', dpi = 600, transparent = True)
+fig.savefig('figures/moons_.png', dpi = 600)
 
 del fig, ax, plot
 
@@ -118,7 +119,7 @@ del displacement, azimuth, elevation, x1, x2, x3
 
 for l in datasets.keys():
     xlim, ylim, zlim = lims(datasets[l])
-    fig = pp.figure(layout = 'constrained', facecolor = 'none')
+    fig = pp.figure(layout = 'constrained')
     ax = fig.add_subplot(projection = '3d')
     ax.set_box_aspect([1, 1, 1])
     
@@ -131,24 +132,16 @@ for l in datasets.keys():
     ax.set_zticklabels([])
     
     ax.view_init(azim = 75, elev = 20)
-    ax.set_facecolor('none')
-    
-    ax.xaxis.pane.fill = False
-    ax.yaxis.pane.fill = False
-    ax.zaxis.pane.fill = False
-    
-    ax.xaxis.pane.set_facecolor('none')
-    ax.xaxis.pane.set_edgecolor('none')
-    ax.yaxis.pane.set_facecolor('none')
-    ax.yaxis.pane.set_edgecolor('none')
-    ax.zaxis.pane.set_facecolor('none')
-    ax.zaxis.pane.set_edgecolor('none')
+
+    ax.xaxis.pane.set(color = 'none')
+    ax.yaxis.pane.set(color = 'none')
+    ax.zaxis.pane.set(color = 'none')
     
     plot = ax.scatter(
         datasets[l][:, 0],
         datasets[l][:, 1],
         datasets[l][:, 2],
-        color = '#c2b9d4',
+        alpha = 0.5,
         )
     fig.savefig('figures/{name}'.format(name = l), dpi = 600)
     
