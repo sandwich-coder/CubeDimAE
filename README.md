@@ -95,4 +95,16 @@ When we do not know the proper latent dimension for the input dataset, we would 
 - **CubeDimAE**: Estimation of the intrinsic dimension, followed by training the autoencoder *only* *once*, saving roughly 40% of time.
 
 
-!['readme_materials/readme_figures/evaluation.png' not found](readme_materials/readme_figures/evaluation.png)
+<div align="center">
+
+### Baseline
+
+| Dataset | AE1 | AE2 | AE3 | Total |
+| --- | --- | --- | --- | --- |
+| S curve | 7.29 | 7.25 | 7.66 | 22.2 |
+| Swiss roll | 6.92 | 7.06 | 7.34 | 21.32 |
+| Möbius strip | 6.94 | 7.08 | 7.32 | 21.34 |
+| Hollow sphere | 7.06 | 7.07 | 7.35 | 21.48 |
+| Solid sphere | 6.97 | 7.09 | 7.33 | 21.39 |
+
+<div align="center">
