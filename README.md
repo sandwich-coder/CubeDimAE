@@ -92,7 +92,7 @@ The algorithm correctly estimated the dimensions of all the datasets.
 When we do not know the proper latent dimension for the input dataset, we would try every possible values. However, we can save significant amount of time training if we know the optimal size of the bottleneck in advance.
 
 - baseline: Trying every possible value, from 1 to 3.
-- **CubeDimAE**: Estimation of the intrinsic dimension, followed by training the autoencoder *only* *once*, saving roughly 40% of time.
+- **CubeDimAE**: Estimation of the intrinsic dimension, followed by training the autoencoder *only* *once*.
 
 
 <div align="center">
@@ -108,7 +108,7 @@ When we do not know the proper latent dimension for the input dataset, we would 
 | Solid sphere | 6.97 | 7.09 | 7.33 | 21.39 |
 
 
-### CubeDimAE
+### CubeDimAE (40% saved)
 
 | Dataset | Estimation | AE | Total (*s*) |
 | --- | --- | --- | --- |
