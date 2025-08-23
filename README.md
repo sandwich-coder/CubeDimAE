@@ -21,7 +21,9 @@ Autoencoder's reconstruction performance drops drastically under the dataset's u
 
 ### S-curve Case Study
 
-!['readme_materials/readme_figures/case_study.png' not found](readme_materials/readme_figures/case_study.png)
+<p align="center">
+  <img width="60%" src="readme_materials/readme_figures/case_study.png">
+</p>
 
 </div>
 
