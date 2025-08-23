@@ -55,7 +55,7 @@ Datasets used are as follows:
 
 1. S-curve (2-dimensional)
 2. Swiss roll (2-dimensional)
-3. Mobius strip (2-dimensional)
+3. Möbius strip (2-dimensional)
 4. Hollow sphere (2-dimensional)
 5. Solid sphere (3-dimensional)
 
@@ -70,6 +70,18 @@ They are toy datasets whose complexities, or intrinsic dimensions, we all agree 
 
 
 The algorithm correctly estimated the dimensions of all the datasets.
+
+
+<div align="center">
+
+| --- | --- | --- |
+| Dataset | Dimension | Estimated (exact) |
+| S curve | 2 | 2 (2.27) |
+| Swiss roll | 2 | 2 (2.26) |
+| Möbius strip | 2 | 2 (2.25) |
+| Hollow sphere | 2 | 2 (2.33) |
+| Solid sphere | 3 | 3 (2.87) |
+
 
 !['readme_materials/readme_figures/accuracy.png' not found](readme_materials/readme_figures/accuracy.png)
 
