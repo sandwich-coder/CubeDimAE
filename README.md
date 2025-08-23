@@ -83,9 +83,6 @@ The algorithm correctly estimated the dimensions of all the datasets.
 | Solid sphere | 3 | 3 (2.87) |
 
 
-!['readme_materials/readme_figures/accuracy.png' not found](readme_materials/readme_figures/accuracy.png)
-
-
 
 ## Evaluation
 
