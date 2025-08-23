@@ -99,7 +99,7 @@ When we do not know the proper latent dimension for the input dataset, we would 
 
 ### Baseline
 
-| Dataset | AE1 | AE2 | AE3 | Total |
+| Dataset | AE1 | AE2 | AE3 | Total (*s*) |
 | --- | --- | --- | --- | --- |
 | S curve | 7.29 | 7.25 | 7.66 | 22.2 |
 | Swiss roll | 6.92 | 7.06 | 7.34 | 21.32 |
@@ -107,4 +107,15 @@ When we do not know the proper latent dimension for the input dataset, we would 
 | Hollow sphere | 7.06 | 7.07 | 7.35 | 21.48 |
 | Solid sphere | 6.97 | 7.09 | 7.33 | 21.39 |
 
-<div align="center">
+
+### CubeDimAE
+
+| Dataset | Estimation | AE | Total (*s*) |
+| --- | --- | --- | --- |
+| S curve | 3.2 | 7.25 | 10.45 |
+| Swiss roll | 5.42 | 7.06 | 12.48 |
+| Möbius strip | 3.03 | 7.08 | 10.11 |
+| Hollow sphere | 5.67 | 7.07 | 12.74 |
+| Solid sphere | 10.12 | 7.33 | 17.45 |
+
+</div>
