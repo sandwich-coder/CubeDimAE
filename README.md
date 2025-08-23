@@ -82,6 +82,8 @@ The algorithm correctly estimated the dimensions of all the datasets.
 | Hollow sphere | 2 | 2 (2.33) |
 | Solid sphere | 3 | 3 (2.87) |
 
+</div>
+
 
 
 ## Evaluation
