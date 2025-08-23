@@ -108,7 +108,7 @@ When we do not know the proper latent dimension for the input dataset, we would 
 | Solid sphere | 6.97 | 7.09 | 7.33 | 21.39 |
 
 
-### CubeDimAE (40% saved)
+### CubeDimAE (≈40% saved)
 
 | Dataset | Estimation | AE | Total (*s*) |
 | --- | --- | --- | --- |
