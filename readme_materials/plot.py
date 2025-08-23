@@ -31,6 +31,15 @@ from tensorflow.keras import layers
 
 from sklearn.datasets import make_moons
 from sklearn.datasets import make_s_curve, make_swiss_roll
+mpl.rcParams.update({
+    'text.color':'#808080',
+    'axes.labelcolor':'#808080',
+    'xtick.color':'#808080',
+    'xtick.labelcolor':'#808080',
+    'ytick.color':'#808080',
+    'ytick.labelcolor':'#808080',
+    'grid.color':'#808080',
+    })    #neutralized
 
 #directories
 os.makedirs('figures', exist_ok = True)
@@ -241,7 +250,7 @@ for l in latents + extras:
 
 # - plot -
 
-fig = pp.figure(layout = 'constrained', facecolor = 'ivory')
+fig = pp.figure(layout = 'constrained')
 gs = fig.add_gridspec(nrows = 2, ncols = 1)
 gs_1 = gs[1].subgridspec(nrows = 1, ncols = 2)
 colors = ['red', 'green', 'burlywood', 'cyan', 'pink']
