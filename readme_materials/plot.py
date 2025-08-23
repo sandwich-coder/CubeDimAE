@@ -4,6 +4,9 @@ from copy import deepcopy as copy
 import inspect, code
 import types
 import time
+import logging
+logging.basicConfig(level = 'INFO')
+logger = logging.getLogger(name = 'plotting')
 import numpy as np
 from scipy import linalg as la
 import matplotlib as mpl
@@ -117,6 +120,7 @@ x3 = displacement * np.sin(elevation, dtype = 'float64')
 datasets['solid_sphere'] = np.stack([x1, x2, x3], axis = 1)
 del displacement, azimuth, elevation, x1, x2, x3
 
+"""
 for l in datasets.keys():
     xlim, ylim, zlim = lims(datasets[l])
     fig = pp.figure(layout = 'constrained')
@@ -146,3 +150,160 @@ for l in datasets.keys():
     fig.savefig('figures/{name}'.format(name = l), dpi = 600)
     
 del xlim, ylim, zlim, fig, ax, plot
+"""
+
+
+# - model -
+
+class Autoencoder(tf.keras.Model):
+    def __init__(self, latent):
+        if not isinstance(latent, int):
+            raise TypeError('The latent dimension should be an integer.')
+        if latent < 1:
+            raise ValueError('The latent dimension must be positive.')
+        super().__init__()
+
+        self.encoder = tf.keras.Sequential([
+
+            layers.Dense(100, activation = 'gelu'),
+            layers.Dense(99, activation = 'gelu'),
+            layers.Dense(98, activation = 'gelu'),
+            layers.Dense(97, activation = 'gelu'),
+            layers.Dense(96, activation = 'gelu'),
+
+            layers.Dense(latent, activation = 'gelu'),
+
+            ])
+
+        self.decoder = tf.keras.Sequential([
+
+            layers.Dense(96, activation = 'gelu'),
+            layers.Dense(97, activation = 'gelu'),
+            layers.Dense(98, activation = 'gelu'),
+            layers.Dense(99, activation = 'gelu'),
+            layers.Dense(100, activation = 'gelu'),
+
+            layers.Dense(3, activation = 'sigmoid'),
+
+            ])
+
+
+    def call(self, data):
+        if not tf.is_tensor(data):
+            raise TypeError('The dataset is not a \'tensorflow.Tensor\'.')
+        if data.dtype != tf.float32:
+            raise ValueError('The dataset is not of \'tensorflow.float32\'.')
+
+        mins = tf.math.reduce_min(data, axis = 0, keepdims = True)
+        maxs = tf.math.reduce_max(data, axis = 0, keepdims = True)
+
+        #scaled
+        scaled = (data - mins) / (maxs - mins)
+
+        #train
+        encoded = self.encoder(scaled)
+        decoded = self.decoder(encoded)
+
+        #unscaled
+        unscaled = decoded * (maxs - mins) + mins
+
+        return unscaled
+
+
+
+
+# - training -
+
+#to Tensors
+data = tf.constant(
+    datasets['s_curve'],
+    dtype = 'float32',
+    )
+
+#autoencoders
+latents = [1, 2, 3]
+extras = [4, 5]
+autoencoders = {}
+for l in latents + extras:
+    autoencoders[l] = Autoencoder(l)
+    autoencoders[l].compile(optimizer = 'adam', loss = 'mse')
+
+#learning
+batch_size = 32
+epochs = 50
+histories, reconstructions = {}, {}
+for l in latents + extras:
+    logger.info('{latent}-dimensional compression'.format(latent = l))
+    histories[l] = autoencoders[l].fit(data, data, batch_size = batch_size, epochs = epochs, shuffle = True)
+    temp = autoencoders[l].predict(data)
+    reconstructions[l] = temp.astype('float64')
+
+
+# - plot -
+
+fig = pp.figure(layout = 'constrained', facecolor = 'ivory')
+gs = fig.add_gridspec(nrows = 2, ncols = 1)
+gs_1 = gs[1].subgridspec(nrows = 1, ncols = 2)
+colors = ['red', 'green', 'burlywood', 'cyan', 'pink']
+
+#training loss
+ax_1 = fig.add_subplot(gs[0])
+ax_1.set_box_aspect(0.5)
+ax_1.set_title('Training Loss')
+ax_1.set_xlabel('epoch')
+ax_1.set_ylabel('loss')
+plot_1 = []
+for l in latents + extras:
+    temp = ax_1.plot(
+        range(1, 1+epochs), histories[l].history['loss'],
+        color = colors[-1+l],
+        label = '{latent}'.format(latent = l),
+        )
+    plot_1.append(temp)
+ax_1.legend(title = 'bottleneck')
+
+xlim, ylim, zlim = lims(data.numpy())
+
+#1-dimensional compression
+ax_2 = fig.add_subplot(gs_1[0], projection = '3d')
+ax_2.set_box_aspect([1, 1, 1])
+ax_2.set_xlim(*xlim)
+ax_2.set_ylim(*ylim)
+ax_2.set_zlim(*zlim)
+ax_2.set_xticklabels([])
+ax_2.set_yticklabels([])
+ax_2.set_zticklabels([])
+ax_2.view_init(azim = 75, elev = 20)
+ax_2.xaxis.pane.set(color = 'none')
+ax_2.yaxis.pane.set(color = 'none')
+ax_2.zaxis.pane.set(color = 'none')
+plot_2 = ax_2.scatter(
+    reconstructions[1][:, 0],
+    reconstructions[1][:, 1],
+    reconstructions[1][:, 2],
+    c = colors[-1+1], alpha = 0.3,
+    )
+
+#2-dimensional compression
+ax_3 = fig.add_subplot(gs_1[1], projection = '3d')
+ax_3.set_box_aspect([1, 1, 1])
+ax_3.set_xlim(*xlim)
+ax_3.set_ylim(*ylim)
+ax_3.set_zlim(*zlim)
+ax_3.set_xticklabels([])
+ax_3.set_yticklabels([])
+ax_3.set_zticklabels([])
+ax_3.view_init(azim = 75, elev = 20)
+ax_3.xaxis.pane.set(color = 'none')
+ax_3.yaxis.pane.set(color = 'none')
+ax_3.zaxis.pane.set(color = 'none')
+plot_3 = ax_3.scatter(
+    reconstructions[2][:, 0],
+    reconstructions[2][:, 1],
+    reconstructions[2][:, 2],
+    c = colors[-1+2], alpha = 0.3,
+    )
+
+fig.savefig('figures/case_study.png', dpi = 600)
+
+del fig, gs, gs_1, colors, ax_1, plot_1, ax_2, plot_2, ax_3, plot_3

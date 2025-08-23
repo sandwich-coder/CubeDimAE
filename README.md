@@ -11,6 +11,22 @@ A proof-of-concept(PoC), this paper aims to reduce the wasted effort finding the
 
 
 
+## Motivation
+
+
+Autoencoder's reconstruction performance drops drastically under the dataset's intrinsic dimension, which means the optimal size of the bottleneck is the dataset's intrinsic dimension. It was desirable to guess that value without trial-and-errors.
+
+
+<div align="center">
+
+### S-curve Case Study
+
+!['readme_materials/readme_figures/case_study.png' not found](readme_materials/readme_figures/case_study.png')
+
+</div>
+
+
+
 ## Contribution
 
 
