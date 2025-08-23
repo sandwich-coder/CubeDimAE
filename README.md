@@ -74,8 +74,8 @@ The algorithm correctly estimated the dimensions of all the datasets.
 
 <div align="center">
 
-| --- | --- | --- |
 | Dataset | Dimension | Estimated (exact) |
+| --- | --- | --- |
 | S curve | 2 | 2 (2.27) |
 | Swiss roll | 2 | 2 (2.26) |
 | Möbius strip | 2 | 2 (2.25) |
