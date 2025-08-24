@@ -2,12 +2,41 @@
 
 
 
+## Table of Contents
+
+
+1. Introduction
+2. Contribution
+3. Motivation
+4. Algorithm Overview
+5. Datasets
+6. Evaluation
+
+
+#### Files
+
+
+ - **cubedimae.pdf**: The paper published at **BigComp2025** on February.
+ - cube_dim.py: The implementation of the algorithm.
+ - experiment.py: The experiment script used for the paper.
+ - requirement.txt: The packages used for the implementation and experiment.
+ - materials: The figures and plotting script for this README.
+
+
+
 ## Introduction
 
 
 A proof-of-concept(PoC), this paper aims to reduce the wasted effort finding the proper size of the latent space in designing an autoencoder by estimating in advance the intrinsic dimension of a dataset. The estimation process was inspired by how human interpolates discontinuous set of points and imagine a continuous analogue. This is contrary to the traditional approaches, which first assume the existence of some continuous manifold (manifold hypothesis), seeing the dataset at hand as a finite sample from the infinite set, and try to guess the dimension of that manifold by examining various statistical properties of the sample.
 
 ⚠️ *The scripts are supplementary and were designed for internal experiments.*
+
+
+
+## Contribution
+
+
+This work presents a method to estimate the intrinsic dimension of a dataset, which is known to be the optimal bottleneck of an autoencoder, and design an optimal network. Its feasibility has been validated on five datasets.
 
 
 
@@ -26,24 +55,6 @@ Autoencoder's reconstruction performance drops drastically under the dataset's u
 </p>
 
 </div>
-
-
-
-## Contribution
-
-
-This work presents a method to estimate the intrinsic dimension of a dataset, which is known to be the optimal bottleneck of an autoencoder, and design an optimal network. Its feasibility has been validated on five datasets.
-
-
-
-## Files
-
-
- - **cubedimae.pdf**: The paper published at **BigComp2025** on February.
- - cube_dim.py: The implementation of the algorithm.
- - experiment.py: The experiment script used for the paper.
- - requirement.txt: The packages used for the implementation and experiment.
- - materials: The figures and plotting script for this README.
 
 
 
@@ -83,7 +94,10 @@ They are toy datasets whose complexities, or intrinsic dimensions, we all agree 
 
 
 
-## Accuracy
+## Evaluation
+
+
+### Accuracy
 
 
 The algorithm correctly estimated the dimensions of all the datasets.
@@ -100,10 +114,6 @@ The algorithm correctly estimated the dimensions of all the datasets.
 | Solid sphere | 3 | 3 (2.87) |
 
 </div>
-
-
-
-## Evaluation
 
 
 When we do not know the proper latent dimension for the input dataset, we would try every possible values. However, we can save significant amount of time training if we know the optimal size of the bottleneck in advance.
