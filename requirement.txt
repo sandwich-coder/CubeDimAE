@@ -1,17 +1,11 @@
 # - python3.12 -
 
-#essential
-numpy
-scipy
+numpy==1.26
 matplotlib
 
-#basic
-pandas
 tensorflow[and-cuda]; sys_platform == 'linux'
 tensorflow; sys_platform == 'darwin'
 
-#extra
 tqdm
 
-#supplementary
 scikit-learn
