@@ -12,6 +12,7 @@
 5. [Datasets](#5-datasets)
 6. [Evaluation](#6-evaluation)
 7. [Usage](#7-usage)
+8. [Citation](#8-citation)
 
 
 ### Files
@@ -203,7 +204,7 @@ python3 experiment.py
 
 
 
-## Reference
+## 8. Citation
 
 
 ```bibtex
