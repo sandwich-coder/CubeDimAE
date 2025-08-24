@@ -26,21 +26,21 @@
 
 
 
-## Introduction
+## 1. Introduction
 
 
 A proof-of-concept(PoC), this paper aims to reduce the wasted effort finding the proper size of the latent space in designing an autoencoder by estimating in advance the intrinsic dimension of a dataset. The estimation process was inspired by how human interpolates discontinuous set of points and imagine a continuous analogue. This is contrary to the traditional approaches, which first assume the existence of some continuous manifold (manifold hypothesis), seeing the dataset at hand as a finite sample from the infinite set, and try to guess the dimension of that manifold by examining various statistical properties of the sample.
 
 
 
-## Contribution
+## 2. Contribution
 
 
 This work presents a method to estimate the intrinsic dimension of a dataset, which is known to be the optimal bottleneck of an autoencoder, and design an optimal network. Its feasibility has been validated on five datasets.
 
 
 
-## Motivation
+## 3. Motivation
 
 
 Autoencoder's reconstruction performance drops drastically under the dataset's underlying complexity, which means the optimal size of the bottleneck is the dataset's intrinsic dimension. It was desirable to guess that value without trial-and-errors.
@@ -59,7 +59,7 @@ Autoencoder's reconstruction performance drops drastically under the dataset's u
 
 
 &nbsp;
-## Algorithm Overview
+## 4. Algorithm Overview
 
 
 To describe the algorithm in an intuitive manner,
@@ -76,7 +76,7 @@ The rationale behind the expression is described in the paper in detail.
 
 
 
-## Datasets
+## 5. Datasets
 
 
 Datasets used are as follows:
@@ -94,7 +94,7 @@ They are toy datasets whose complexities, or intrinsic dimensions, we all agree 
 
 
 
-## Evaluation
+## 6. Evaluation
 
 
 ### Accuracy
