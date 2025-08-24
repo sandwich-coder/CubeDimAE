@@ -200,3 +200,19 @@ pip install --upgrade --requirement requirement_frozen.txt
 
 python3 experiment.py
 ```
+
+
+
+## Reference
+
+
+```bibtex
+@inproceedings{kim2025cubedimae,
+  title={CubeDimAE: Automatic Autoencoder Generation based on Dimension Estimation by Tessellation},
+  author={Kim, Byungrok and Hwang, Myeong-Ha and Joo, Jeonghyun and Kwon, YooJin and Lee, Hyunwoo},
+  booktitle={2025 IEEE International Conference on Big Data and Smart Computing (BigComp)},
+  pages={20--25},
+  year={2025},
+  organization={IEEE}
+}
+```
