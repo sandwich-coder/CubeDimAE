@@ -195,7 +195,7 @@ scikit-learn==1.5.2
 
 ```bash
 pip install --upgrade pip
-pip install --upgrade --requirement requirement_original.txt
+pip install --upgrade --requirement requirement_frozen.txt
 
 python3 experiment.py
 ```
