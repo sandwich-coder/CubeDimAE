@@ -8,7 +8,7 @@
 1. [Introduction](#1-introduction)
 2. [Contribution](#2-contribution)
 3. [Motivation](#3-motivation)
-4. [Algorithm Overview](#4-algorithm-overview)
+4. [Overview](#4-overview)
 5. [Datasets](#5-datasets)
 6. [Evaluation](#6-evaluation)
 
@@ -59,7 +59,7 @@ Autoencoder's reconstruction performance drops drastically under the dataset's u
 
 
 &nbsp;
-## 4. Algorithm Overview
+## 4. Overview
 
 
 To describe the algorithm in an intuitive manner,
