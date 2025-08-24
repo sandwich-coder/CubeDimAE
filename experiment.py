@@ -159,11 +159,13 @@ class Autoencoder(tf.keras.Model):
 
 # - data -
 
+seed = None    # The estimation algorithm is hardly affected by small randomness in the dataset. Left optional for reproducibility.
+
 #s curve <2-dimensional)>
-data1 = make_s_curve(n_samples = 3200, random_state = 1)[0]
+data1 = make_s_curve(n_samples = 3200, random_state = seed)[0]
 
 #swiss roll <2-dimensional>
-data2 = make_swiss_roll(n_samples = 3200, random_state = 1)[0]
+data2 = make_swiss_roll(n_samples = 3200, random_state = seed)[0]
 
 #mobius strip (from kaggle) <2-dimensional>
 theta = np.linspace(0, 2 * np.pi, num = 200, endpoint = False, dtype = 'float64')
@@ -192,14 +194,16 @@ data4 = np.stack([x1, x2, x3], axis = 1)
 del radius, azimuth, elevation, x1, x2, x3
 
 #solid sphere <3-dimensional>
-displacement = np.random.uniform(low = 0, high = 1, size = [3200]) ** np.float64(1 / 3)
-azimuth = np.random.uniform(low = -np.pi, high = np.pi, size = [3200])
-elevation = np.random.uniform(low = -1, high = 1, size = [3200])
+rng = np.random.default_rng(seed = seed)
+displacement = rng.uniform(low = 0, high = 1, size = [3200]) ** np.float64(1 / 3)
+azimuth = rng.uniform(low = -np.pi, high = np.pi, size = [3200])
+elevation = rng.uniform(low = -1, high = 1, size = [3200])
 elevation = np.arcsin(elevation, dtype = 'float64')
 x1 = displacement * np.cos(azimuth, dtype = 'float64') * np.cos(elevation, dtype = 'float64')
 x2 = displacement * np.sin(azimuth, dtype = 'float64') * np.cos(elevation, dtype = 'float64')
 x3 = displacement * np.sin(elevation, dtype = 'float64')
 data5 = np.stack([x1, x2, x3], axis = 1)
+del rng, displacement, azimuth, elevation, x1, x2, x3
 
 for l in [data1, data2, data3, data4, data5]:
     _xlim, _ylim, _zlim = limit(l)
@@ -211,6 +215,8 @@ for l in [data1, data2, data3, data4, data5]:
     _axes.set_zlim(*_zlim)
     _axes.view_init(azim = 75, elev = 20)
     _plot = _axes.scatter(l[:, 0], l[:, 1], l[:, 2], alpha = 0.3)
+
+del seed
 
 
 
