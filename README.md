@@ -15,12 +15,12 @@
 
 #### Files
 
-
- - **cubedimae.pdf**: The paper published at **BigComp2025** on February.
- - cube_dim.py: The implementation of the algorithm.
- - experiment.py: The experiment script used for the paper.
- - requirement.txt: The packages used for the implementation and experiment.
- - materials: The figures and plotting script for this README.
+- **cubedimae.pdf**: The paper published at **BigComp2025** on February.
+- cube_dim.py: The implementation of the algorithm.
+- experiment.py: The experiment script used for the paper.
+- requirement.txt: The packages used for the implementation and experiment.
+- requirement_origina.txt: The versions used at the time of writing the paper.
+- materials: The figures and plotting script for this README.
 
 ⚠️  *The scripts are supplementary and were designed for internal experiments.*
 
