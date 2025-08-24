@@ -23,7 +23,8 @@
 - requirement_frozen.txt: The versions used in the paper.
 - materials: The figures and plotting script for this README.
 
-⚠️  *The scripts are supplementary and were designed for internal experiments.*
+[!NOTE]
+> *The scripts are supplementary and were designed for internal experiments.*
 
 
 
