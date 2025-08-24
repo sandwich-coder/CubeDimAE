@@ -31,7 +31,7 @@
 ## 1. Introduction
 
 
-A proof-of-concept(PoC), this paper aims to reduce the wasted effort finding the proper size of the latent space in designing an autoencoder by estimating in advance the intrinsic dimension of a dataset. The estimation process was inspired by how human interpolates discontinuous set of points and imagine a continuous analogue. The estimation process has shown 100% accuracy on synthetic datasets and saved over 40% of time on hyper-parameter tuning.
+A proof-of-concept(PoC), this paper aims to reduce the wasted effort finding the proper size of the latent space in designing an autoencoder by estimating in advance the intrinsic dimension of a dataset. The estimation process has shown 100% accuracy on synthetic datasets and saved over 40% of time on hyper-parameter tuning.
 
 
 
