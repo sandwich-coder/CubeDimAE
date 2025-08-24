@@ -32,7 +32,7 @@ Autoencoder's reconstruction performance drops drastically under the dataset's u
 ## Contribution
 
 
-This work presents a method to estimate the intrinsic dimension of a dataset, which is known to be the optimal latent dimension of an autoencoder, and automatically design an optimal network. Its feasibility is shown on five datasets.
+This work presents a method to estimate the intrinsic dimension of a dataset, which is known to be the optimal bottleneck of an autoencoder, and automatically design an optimal network. Its feasibility is shown on five datasets.
 
 
 
