@@ -22,7 +22,7 @@ Autoencoder's reconstruction performance drops drastically under the dataset's u
 ### S-curve Case Study
 
 <p align="center">
-  <img width="75%" src="readme_materials/readme_figures/case_study.png">
+  <img width="75%" src="materials/readme_figures/case_study.png">
 </p>
 
 </div>
@@ -62,7 +62,7 @@ To describe the algorithm in an intuitive manner,
 The rationale behind the expression is described in the paper in detail.
 
 
-!['readme_materials/readme_figures/overview.png' not found](readme_materials/readme_figures/overview.png)
+!['materials/readme_figures/overview.png' not found](materials/readme_figures/overview.png)
 
 
 
@@ -80,7 +80,7 @@ Datasets used are as follows:
 They are toy datasets whose complexities, or intrinsic dimensions, we all agree on.
 
 
-!['readme_materials/readme_figures/datasets.png' not found](readme_materials/readme_figures/datasets.png)
+!['materials/readme_figures/datasets.png' not found](materials/readme_figures/datasets.png)
 
 
 
