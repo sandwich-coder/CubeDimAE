@@ -158,6 +158,7 @@ When we do not know the proper latent dimension for the input dataset, we would 
 ### Environment
 
 Platform: 'linux' or 'darwin'
+
 Language: Python3.12
 
 Packages:
