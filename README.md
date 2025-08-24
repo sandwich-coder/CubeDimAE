@@ -37,7 +37,7 @@ A proof-of-concept(PoC), this paper aims to reduce the wasted effort finding the
 ## 2. Contribution
 
 
-This work presents a method to estimate the intrinsic dimension of a dataset, which is known to be the optimal bottleneck of an autoencoder, and design an optimal network. Its feasibility has been validated on five datasets.
+This work presents a method to find the optimal bottleneck of an autoencoder and design an optimal network. Its feasibility has been validated on five datasets.
 
 
 
