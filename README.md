@@ -20,7 +20,7 @@
 - cube_dim.py: The implementation of the algorithm.
 - experiment.py: The experiment script used for the paper.
 - requirement.txt: The packages used for the implementation and experiment.
-- requirement_original.txt: The versions used in the paper.
+- requirement_frozen.txt: The versions used in the paper.
 - materials: The figures and plotting script for this README.
 
 ⚠️  *The scripts are supplementary and were designed for internal experiments.*
