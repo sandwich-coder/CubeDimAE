@@ -158,3 +158,18 @@ When we do not know the proper latent dimension for the input dataset, we would 
 ### Environment
 
 Platform: 'linux' or 'darwin'
+Language: Python3.12
+
+Packages:
+```pip-requirements
+numpy
+scipy
+matplotlib
+
+pandas
+tensorflow[and-cuda]==2.18.0; sys_platform == 'linux'
+tensorflow==2.18.0; sys_platform == 'darwin'
+
+tqdm
+scikit-learn
+```
