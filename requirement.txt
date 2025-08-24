@@ -5,8 +5,8 @@ scipy
 matplotlib
 
 pandas
-tensorflow[and-cuda]==2.18.0; sys_platform == 'linux'
-tensorflow==2.18.0; sys_platform == 'darwin'
+tensorflow[and-cuda]; sys_platform == 'linux'
+tensorflow; sys_platform == 'darwin'
 
 tqdm
 scikit-learn

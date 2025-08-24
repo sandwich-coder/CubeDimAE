@@ -162,15 +162,29 @@ Platform: 'linux' or 'darwin'
 Language: Python3.12
 
 Packages:
+
 ```pip-requirements
 numpy
 scipy
 matplotlib
 
 pandas
-tensorflow[and-cuda]==2.18.0; sys_platform == 'linux'
-tensorflow==2.18.0; sys_platform == 'darwin'
+tensorflow[and-cuda]; sys_platform == 'linux'
+tensorflow; sys_platform == 'darwin'
 
 tqdm
 scikit-learn
+```
+
+or the versions used in the paper,
+
+```
+numpy==1.26.4
+matplotlib==3.9.2
+
+tensorflow[and-cuda]==2.18.0; sys_platform == 'linux'
+tensorflow==2.18.0; sys_platform == 'darwin'
+
+tqdm==4.66.6
+scikit-learn==1.5.2
 ```
