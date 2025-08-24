@@ -5,7 +5,7 @@
 ## Table of Contents
 
 
-1. Introduction
+1. [Introduction](#1-introduction)
 2. Contribution
 3. Motivation
 4. Algorithm Overview
