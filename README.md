@@ -11,6 +11,7 @@
 4. [Overview](#4-overview)
 5. [Datasets](#5-datasets)
 6. [Evaluation](#6-evaluation)
+7. [Usage](#7-usage)
 
 
 #### Files
@@ -152,7 +153,7 @@ When we do not know the proper latent dimension for the input dataset, we would 
 
 
 
-## Usage
+## 7. Usage
 
 
 ### Environment
