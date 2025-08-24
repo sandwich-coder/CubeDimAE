@@ -189,3 +189,13 @@ tensorflow==2.18.0; sys_platform == 'darwin'
 tqdm==4.66.6
 scikit-learn==1.5.2
 ```
+
+
+### Run
+
+```bash
+pip install --upgrade pip
+pip install --upgrade --requirement requirement_original.txt
+
+python3 experiment.py
+```
