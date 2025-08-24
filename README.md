@@ -149,3 +149,13 @@ When we do not know the proper latent dimension for the input dataset, we would 
 | Solid sphere | 10.12 | 7.33 | 17.45 |
 
 </div>
+
+
+
+## Usage
+
+
+### Environment
+
+
+Platform: 'linux' or 'darwin'
