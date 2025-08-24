@@ -178,7 +178,7 @@ scikit-learn
 
 or the versions used in the paper,
 
-```
+```pip-requirements
 numpy==1.26.4
 matplotlib==3.9.2
 
