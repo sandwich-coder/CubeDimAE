@@ -164,6 +164,7 @@ When we do not know the proper latent dimension for the input dataset, we would 
 ### Environment
 
 Machine: Macbook M2 pro
+<br>
 Platform: 'darwin'
 
 Packages:
