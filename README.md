@@ -48,7 +48,7 @@ Autoencoder is the first choice in AI-based anomaly detection tasks. It has been
 ## 3. Motivation
 
 
-Autoencoder's reconstruction performance drops drastically under the dataset's underlying complexity, which means the optimal size of the bottleneck is the dataset's intrinsic dimension. It was desirable to guess that value without trial-and-errors.
+Autoencoder's reconstruction performance drops drastically under the dataset's underlying complexity, which means the optimal size of the bottleneck is the dataset's intrinsic dimension. It was desirable to guess that value without trial-and-error.
 
 
 <div align="center">
