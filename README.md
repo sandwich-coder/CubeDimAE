@@ -173,10 +173,10 @@ Platform: 'darwin'
 python=3.11.0
 
 numpy=1.23.5
-matplotlib=3.10.0
+matplotlib=3.9.2
 tensorflow=2.12.0
-tqdm=4.67.1
-scikit-learn=1.7.1
+tqdm=4.66.5
+scikit-learn=1.5.2
 ```
 Later versions and different platforms will likely have no issue.
 
