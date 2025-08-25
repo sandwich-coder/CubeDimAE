@@ -18,7 +18,7 @@
 ### Files
 
 - **cubedimae.pdf**: The paper published at **BigComp2025** on February.
-* cube_dim.py: The implementation of the algorithm.
+- cube_dim.py: The implementation of the algorithm.
 - experiment.py: The experiment script used for the paper.
 - requirement.txt: The packages needed for the implementation and experiment.
 - requirement_frozen.txt: The versions used in the paper.
