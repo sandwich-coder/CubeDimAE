@@ -20,8 +20,7 @@
 - **cubedimae.pdf**: The paper published at **BigComp2025** on February.
 - cube_dim.py: The implementation of the algorithm.
 - experiment.py: The experiment script used for the paper.
-- requirement.txt: The packages needed for the implementation and experiment.
-- requirement_frozen.txt: The versions used in the paper.
+- conda-requirement.txt: The packages required for the implementation and experiment.
 - materials: The figures and plotting script for this README.
 
 
@@ -165,8 +164,7 @@ When we do not know the proper latent dimension for the input dataset, we would 
 ### Environment
 
 Machine: Macbook M2 pro
-<br>
-Language: Python3.11
+Platform: 'darwin'
 
 Packages:
 
@@ -175,9 +173,7 @@ python=3.11.0
 
 numpy=1.26.4
 matplotlib=3.9.2
-
 tensorflow=2.18.0
-
 tqdm=4.66.6
 scikit-learn=1.5.2
 ```
