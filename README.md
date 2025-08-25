@@ -24,9 +24,6 @@
 - requirement_frozen.txt: The versions used in the paper.
 - materials: The figures and plotting script for this README.
 
-> [!NOTE]
-> *The scripts are supplementary and were designed for internal experiments.*
-
 
 
 ## 1. Introduction
@@ -158,6 +155,11 @@ When we do not know the proper latent dimension for the input dataset, we would 
 
 
 ## 7. Usage
+
+
+> [!NOTE]
+> *The scripts are supplementary and were designed for internal experiments.*
+
 
 
 ### Environment
