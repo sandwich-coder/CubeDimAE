@@ -173,11 +173,11 @@ Packages:
 ```conda
 python=3.11.0
 
-numpy=1.26.4
-matplotlib=3.9.2
-tensorflow=2.18.0
-tqdm=4.66.6
-scikit-learn=1.5.2
+numpy=1.23.5
+matplotlib=3.10.0
+tensorflow=2.12.0
+tqdm=4.67.1
+scikit-learn=1.7.1
 ```
 
 
