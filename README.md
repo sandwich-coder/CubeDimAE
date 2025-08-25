@@ -156,16 +156,15 @@ When we do not know the proper latent dimension for the input dataset, we would 
 ## 7. Reproduction
 
 
-> [!NOTE]
-> *The scripts are supplementary and were designed for internal experiments.*<br>
-> The environment specified is the one used in the paper. Later versions and different machines will likely have no issue.
+Experiments were run on a Macbook M2 pro.
 
+
+> [!NOTE]
+> *The scripts are supplementary and were designed for internal experiments.*
 
 
 ### Environment
 
-Machine: Macbook M2 pro
-<br>
 Platform: 'darwin'
 
 Packages:
@@ -179,6 +178,7 @@ tensorflow=2.12.0
 tqdm=4.67.1
 scikit-learn=1.7.1
 ```
+Later versions and different platforms will likely have no issue.
 
 
 ### Run
