@@ -164,46 +164,32 @@ When we do not know the proper latent dimension for the input dataset, we would 
 
 ### Environment
 
-Platform: Linux or Mac
+Machine: Macbook M2 pro
 <br>
-Language: Python3.12
+Language: Python3.11
 
 Packages:
 
-```pip-requirements
-numpy
-scipy
-matplotlib
+```conda
+python=3.11.0
 
-pandas
-tensorflow[and-cuda]; sys_platform == 'linux'
-tensorflow; sys_platform == 'darwin'
+numpy=1.26.4
+matplotlib=3.9.2
 
-tqdm
-scikit-learn
-```
+tensorflow=2.18.0
 
-or the versions used in the paper,
-
-```pip-requirements
-numpy==1.26.4
-matplotlib==3.9.2
-
-tensorflow[and-cuda]==2.18.0; sys_platform == 'linux'
-tensorflow==2.18.0; sys_platform == 'darwin'
-
-tqdm==4.66.6
-scikit-learn==1.5.2
+tqdm=4.66.6
+scikit-learn=1.5.2
 ```
 
 
 ### Run
 
 ```bash
-pip install --upgrade pip
-pip install --upgrade --requirement requirement_frozen.txt
+conda update conda
+conda create --name cubedimae --file conda-requirement.txt
 
-python3 experiment.py
+python experiment.py
 ```
 
 
