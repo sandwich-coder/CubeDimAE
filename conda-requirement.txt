@@ -1,9 +1,7 @@
 python=3.11.0
 
-numpy=1.26.4
-matplotlib=3.9.2
-
-tensorflow=2.18.0
-
-tqdm=4.66.6
-scikit-learn=1.5.2
+numpy
+matplotlib
+tensorflow
+tqdm
+scikit-learn
