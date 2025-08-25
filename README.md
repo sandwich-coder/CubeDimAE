@@ -185,7 +185,7 @@ Later versions and different platforms will likely have no issue.
 
 ```bash
 conda update conda
-conda create --name cubedimae --file conda-requirement.txt
+conda create --name CubeDimAE --file conda-requirement.txt
 
 python experiment.py
 ```
