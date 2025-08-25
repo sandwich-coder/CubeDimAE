@@ -39,7 +39,7 @@ Autoencoder is the first choice in AI-based anomaly detection tasks. It has been
 ## 2. Contribution
 
 
-- Automate the bottleneck tuning of an autoencoder.
+- Automate the bottleneck tuning of autoencoder network.
 - 100% accuracy on five synthetic datasets.
 - 40% time-saving compared with the baseline.
 
