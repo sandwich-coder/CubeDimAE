@@ -6,9 +6,10 @@ import itertools
 import logging
 logging.basicConfig(level = 'INFO')
 import numpy as np
-import matplotlib
+import matplotlib as mpl
 from matplotlib import pyplot as plt
-matplotlib.rcParams['figure.figsize'] = (6, 6)
+mpl.rcParams['figure.figsize'] = (6, 6)
+mpl.use('Agg')
 from sklearn.datasets import make_s_curve, make_swiss_roll
 import tensorflow as tf
 from tensorflow.keras import layers
