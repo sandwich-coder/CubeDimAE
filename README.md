@@ -166,8 +166,7 @@ Experiments were run on a Macbook M2 pro.
 ### Environment
 
 Platform: 'darwin'
-
-Packages:
+<br>Packages:
 
 ```conda
 python=3.11.0
