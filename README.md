@@ -11,7 +11,7 @@
 4. [Overview](#4-overview)
 5. [Datasets](#5-datasets)
 6. [Evaluation](#6-evaluation)
-7. [Usage](#7-usage)
+7. [Reproduction](#7-reproduction)
 8. [Citation](#8-citation)
 
 
@@ -154,7 +154,7 @@ When we do not know the proper latent dimension for the input dataset, we would 
 
 
 
-## 7. Usage
+## 7. Reproduction
 
 
 > [!NOTE]
@@ -197,7 +197,7 @@ scikit-learn==1.5.2
 ```
 
 
-### Reproduction
+### Run
 
 ```bash
 pip install --upgrade pip
