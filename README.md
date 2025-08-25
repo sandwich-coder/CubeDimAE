@@ -158,6 +158,7 @@ When we do not know the proper latent dimension for the input dataset, we would 
 
 > [!NOTE]
 > *The scripts are supplementary and were designed for internal experiments.*
+> The environment specified is the one used in the paper. Later versions and different machines will likely have no issue.
 
 
 
