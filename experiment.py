@@ -259,8 +259,8 @@ for l in datasets.keys():
     end = time.time()
     lapse = end - begin
 
-    logging.info(f'Estimated: {estimated}')
-    logging.info(f'    Lapse: {lapse:.2f} (s)')
+    logger.info(f'Estimated: {estimated}')
+    logger.info(f'    Lapse: {lapse:.2f} (s)')
 
     datasets[l]['estimated'] = estimated
     datasets[l]['lapse'] = lapse
@@ -268,9 +268,8 @@ for l in datasets.keys():
 
 del begin, estimated, parse, end, lapse
 
-
 #tilesize dependency
-fig = plt.figure(layout = 'constrained', figsize = (5, 11))
+fig = plt.figure(layout = 'constrained', figsize = (6, 12))
 gs = fig.add_gridspec(nrows = len(parses), ncols = 1)
 for l in range(len(parses)):
     lengths = parses[l][:, 0].copy()
@@ -284,8 +283,15 @@ for l in range(len(parses)):
 
     plot = ax.plot(
         lengths, estimations,
-        marker = 'o', lienstyle = '--',
+        marker = 'o', linestyle = '--',
         color = 'green',
         )
 
-del fig, gs, lengths, connections, estimations, ax, plot
+del gs, lengths, connections, estimations, ax, plot
+
+fig.savefig('figures/tilesize_dependency.png', dpi = 300)
+
+del fig
+
+
+# - training -
