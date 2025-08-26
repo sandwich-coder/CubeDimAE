@@ -247,3 +247,21 @@ for l in datasets.keys():
     datasets[l]['figure'].savefig(f'figures/{l}_data.png', dpi = 300)
 
 del seed, array1, array2, array3, array4, array5
+
+
+# - estimation -
+
+parses = []
+for l in datasets.keys():
+
+    begin = time.time()
+    estimated, parse = estimator.estimate(datasets[l]['array'], return_parse = True)
+    end = time.time()
+    lapse = end - begin
+    parses.append(parse)
+
+    logging.info(f'Estimated: {estimated}')
+    logging.info(f'    Lapse: {lapse:.2f} (s)')
+
+    datasets[l]['estimated'] = estimated
+    datasets[l]['lapse'] = lapse
