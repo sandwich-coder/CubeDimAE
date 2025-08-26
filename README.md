@@ -5,14 +5,14 @@
 ## Table of Contents
 
 
-[Introduction](#introduction)
-[Contribution](#contribution)
-[Motivation](#motivation)
-[Overview](#overview)
-[Datasets](#datasets)
-[Evaluation](#evaluation)
-[Reproduction](#reproduction)
-[Citation](#citation)
+1. [Introduction](#introduction)
+2. [Contribution](#contribution)
+3. [Motivation](#motivation)
+4. [Overview](#overview)
+5. [Datasets](#datasets)
+6. [Evaluation](#evaluation)
+7. [Reproduction](#reproduction)
+8. [Citation](#citation)
 
 
 ### Files
@@ -25,14 +25,14 @@
 
 
 
-## 1. Introduction
+## Introduction
 
 
 Autoencoder is the first choice in AI-based anomaly detection tasks. It has been recognized that the optimal bottleneck of an autoencoder is the intrinsic dimension of the input. Traditionally the optimal point is found through trial-and-error, putting large amount of time and effort into hyper-parameter tuning. This paper presents a method to estimate the intrinsic dimension in advance to automate the bottleneck tuning. We have tested on five synthetic datasets as a proof-of-concept and shown its feasibility with 100% accuracy and 40% reduction in time.
 
 
 
-## 2. Contribution
+## Contribution
 
 
 - Automatation of the bottleneck tuning of autoencoder network.
@@ -41,7 +41,7 @@ Autoencoder is the first choice in AI-based anomaly detection tasks. It has been
 
 
 
-## 3. Motivation
+## Motivation
 
 
 Autoencoder's reconstruction performance drops drastically under the dataset's underlying complexity, which means the optimal size of the bottleneck is the dataset's intrinsic dimension. It was desirable to guess that value without trial-and-error.
@@ -60,7 +60,7 @@ Autoencoder's reconstruction performance drops drastically under the dataset's u
 
 
 &nbsp;
-## 4. Overview
+## Overview
 
 
 To describe the algorithm in an intuitive manner,
@@ -77,7 +77,7 @@ The rationale behind the expression is described in the paper in detail.
 
 
 
-## 5. Datasets
+## Datasets
 
 
 Below are datasets used in the experiments.
@@ -95,7 +95,7 @@ They are toy datasets whose complexities, or intrinsic dimensions, we all agree 
 
 
 
-## 6. Evaluation
+## Evaluation
 
 
 ### Accuracy
@@ -153,7 +153,7 @@ When we do not know the proper latent dimension for the input dataset, we would 
 
 
 
-## 7. Reproduction
+## Reproduction
 
 
 Experiments were run on a Macbook M2 pro.
@@ -193,7 +193,7 @@ python experiment.py
 
 
 
-## 8. Citation
+## Citation
 
 
 ```bibtex
