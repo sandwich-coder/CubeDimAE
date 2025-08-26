@@ -19,7 +19,9 @@ from sklearn.datasets import make_s_curve, make_swiss_roll
 
 from cube_dim import CubeDim
 
-#preparatory functions
+# - initialized -
+
+#functions
 def translate3d(points, move_x = 0, move_y = 0, move_z = 0):
     translation = np.array([move_x, move_y, move_z], dtype = 'float64')
     return points + translation.reshape([-1, translation.shape[0]])
@@ -99,9 +101,7 @@ def voxel(data, length, return_colors = False, return_limits = True):
 #directories
 os.makedirs('figures', exist_ok = True)
 
-
-# - construction -
-
+#estimator
 estimator = CubeDim()
 
 #autoencoder
@@ -258,10 +258,34 @@ for l in datasets.keys():
     estimated, parse = estimator.estimate(datasets[l]['array'], return_parse = True)
     end = time.time()
     lapse = end - begin
-    parses.append(parse)
 
     logging.info(f'Estimated: {estimated}')
     logging.info(f'    Lapse: {lapse:.2f} (s)')
 
     datasets[l]['estimated'] = estimated
     datasets[l]['lapse'] = lapse
+    parses.append(parse)
+
+del begin, estimated, parse, end, lapse
+
+
+#tilesize dependency
+fig = plt.figure(layout = 'constrained', figsize = (5, 11))
+gs = fig.add_gridspec(nrows = len(parses), ncols = 1)
+for l in range(len(parses)):
+    lengths = parses[l][:, 0].copy()
+    connections = parses[l][:, 1].copy()
+    estimations = np.log(np.float64(1) + connections) / np.log(3, dtype = 'float64')
+    
+    ax = fig.add_subplot(gs[l])
+    ax.set_box_aspect(0.2)
+    ax.set_xlabel('length')
+    ax.set_ylabel('estimated')
+
+    plot = ax.plot(
+        lengths, estimations,
+        marker = 'o', lienstyle = '--',
+        color = 'green',
+        )
+
+del fig, gs, lengths, connections, estimations, ax, plot

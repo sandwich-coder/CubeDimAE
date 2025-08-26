@@ -5,14 +5,14 @@
 ## Table of Contents
 
 
-1. [Introduction](#1-introduction)
-2. [Contribution](#2-contribution)
-3. [Motivation](#3-motivation)
-4. [Overview](#4-overview)
-5. [Datasets](#5-datasets)
-6. [Evaluation](#6-evaluation)
-7. [Reproduction](#7-reproduction)
-8. [Citation](#8-citation)
+[Introduction](#introduction)
+[Contribution](#contribution)
+[Motivation](#motivation)
+[Overview](#overview)
+[Datasets](#datasets)
+[Evaluation](#evaluation)
+[Reproduction](#reproduction)
+[Citation](#citation)
 
 
 ### Files
@@ -185,7 +185,8 @@ Later versions and different platforms will likely have no issue.
 
 ```bash
 conda update conda
-conda create --name CubeDimAE --file conda-requirement.txt
+conda env create --file environment.yml
+conda activate CubeDimAE
 
 python experiment.py
 ```
