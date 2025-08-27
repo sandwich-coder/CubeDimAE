@@ -143,7 +143,7 @@ dependencies:
   - pyyaml=6.0.2
   - scikit-learn=1.5.2
 ```
-Later versions and different platforms will likely have no issue.
+Later versions will likely have no issue.
 
 ### Run
 
