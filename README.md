@@ -147,7 +147,7 @@ Later versions and different platforms will likely have no issue.
 
 ### Run
 
-```bash
+```console
 conda update conda
 conda env create --file environment.yml
 conda activate CubeDimAE
