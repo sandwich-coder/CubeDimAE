@@ -60,7 +60,7 @@ The rationale behind the expression is described in the paper in detail.
 
 ## Datasets
 
-Below are datasets used in the experiments.
+Below are the datasets used.
 
 1. S-curve (2-dimensional)
 2. Swiss roll (2-dimensional)
