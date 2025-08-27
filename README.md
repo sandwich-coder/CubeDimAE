@@ -9,14 +9,14 @@
 
 ### Table of Contents
 
-1. [Contribution](#contribution)
-2. [Introduction](#introduction)
-3. [Motivation](#motivation)
-4. [Overview](#overview)
-5. [Datasets](#datasets)
-6. [Evaluation](#evaluation)
-7. [**Reproduction**](#reproduction)
-8. [Citation](#citation)
+- [Contribution](#contribution)
+- [Introduction](#introduction)
+- [Motivation](#motivation)
+- [Overview](#overview)
+- [Datasets](#datasets)
+- [Evaluation](#evaluation)
+- [**Reproduction**](#reproduction)
+- [Citation](#citation)
 
 &nbsp;
 ## Contribution
