@@ -124,7 +124,7 @@ Solid sphere | 10.12 | 7.33 | 17.45
 ## Reproduction
 
 > [!NOTE]
-> *The scripts were written solely for reproducing the experimental results. They were not designed for reuse.*
+> **_The scripts were written solely for reproducing the experimental results. They were not designed for reuse._**
 
 ### Environment
 
