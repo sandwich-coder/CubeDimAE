@@ -18,6 +18,7 @@
 7. [**Reproduction**](#reproduction)
 8. [Citation](#citation)
 
+&nbsp;
 ## Contribution
 
 ⚙️ **Automation of the bottleneck tuning of autoencoder network.**
@@ -44,7 +45,6 @@ Autoencoder's reconstruction performance drops drastically under the dataset's u
 
 </div>
 
-&nbsp;
 ## Overview
 
 To describe the algorithm in an intuitive manner,
