@@ -92,7 +92,7 @@ Solid sphere | 3 | 3 (2.87)
 
 ### Efficiency
 
-When we do not know the proper latent dimension for the input dataset, we would try every possible values. However, we can save significant amount of time training if we know the optimal size of the bottleneck in advance.
+When we do not know the proper latent dimension for the input dataset, we would try every possible values. However, we can save significant amount of time if we know the optimal size of the bottleneck in advance.
 
 - baseline: Trying every possible value, from 1 to 3.
 - **CubeDimAE**: Dimension estimation, followed by training the autoencoder *only* *once*.
