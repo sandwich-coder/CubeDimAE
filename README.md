@@ -130,7 +130,7 @@ Experiments were run on a Macbook M2 pro.
 Platform: 'darwin'<br>
 Package Manager: Conda<br>
 Packages:<br>
-```conda
+```yaml
 python=3.11.0
 
 numpy=1.23.5
