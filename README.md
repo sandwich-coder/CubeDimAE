@@ -128,8 +128,9 @@ Solid sphere | 10.12 | 7.33 | 17.45
 
 ### Environment
 
-Platform: 'linux' or 'darwin'<br>
-Package Manager: Conda<br>
+Platform: 'linux' or 'darwin'
+<br>
+Package Manager: Conda
 ```yaml
 name: CubeDimAE
 channels:
