@@ -15,11 +15,21 @@ mpl.use('Agg')
 import tensorflow as tf
 from tensorflow.keras import layers
 
+import pprint
 from sklearn.datasets import make_s_curve, make_swiss_roll
 
 from cube_dim import CubeDim
 
 # - initialized -
+
+#datalist
+datalist = [
+    's_curve',
+    'swiss_roll',
+    'mobius_strip',
+    'hollow_sphere',
+    'solid_sphere',
+    ]
 
 #functions
 def translate3d(points, move_x = 0, move_y = 0, move_z = 0):
@@ -164,21 +174,20 @@ class Autoencoder(tf.keras.Model):
 
 # - datasets -
 
-datasets = {
-    's_curve':{},
-    'swiss_roll':{},
-    'mobius_strip':{},
-    'hollow_sphere':{},
-    'solid_sphere':{},
-    }
+datasets = {}
+for l in datalist:
+    datasets[l] = {}
+
+for l in datasets.keys():
+    datasets[l]['lapses'] = {}
 
 seed = None
 
 #s curve (2-dimensional)
-array1 = make_s_curve(n_samples = 3200, random_state = seed)[0]
+s_curve = make_s_curve(n_samples = 3200, random_state = seed)[0]
 
 #swiss roll (2-dimensional)
-array2 = make_swiss_roll(n_samples = 3200, random_state = seed)[0]
+swiss_roll = make_swiss_roll(n_samples = 3200, random_state = seed)[0]
 
 #mobius strip (2-dimensional)
 theta = np.linspace(0, 2 * np.pi, num = 200, endpoint = False, dtype = 'float64')
@@ -189,7 +198,7 @@ r = np.float64(1) + w * np.cos(phi)
 x = np.ravel(r * np.cos(theta))
 y = np.ravel(r * np.sin(theta))
 z = np.ravel(w * np.sin(phi))
-array3 = np.stack([x, y, z], axis = 1)
+mobius_strip = np.stack([x, y, z], axis = 1)
 del theta, w, phi, r, x, y, z
 
 #hollow sphere (2-dimensional)
@@ -203,7 +212,7 @@ elevation = elevation.ravel()
 x1 = radius * np.cos(azimuth, dtype = 'float64') * np.cos(elevation, dtype = 'float64')
 x2 = radius * np.sin(azimuth, dtype = 'float64') * np.cos(elevation, dtype = 'float64')
 x3 = radius * np.sin(elevation, dtype = 'float64')
-array4 = np.stack([x1, x2, x3], axis = 1)
+hollow_sphere = np.stack([x1, x2, x3], axis = 1)
 del radius, azimuth, elevation, x1, x2, x3
 
 #solid sphere (3-dimensional)
@@ -215,14 +224,12 @@ elevation = np.arcsin(elevation, dtype = 'float64')
 x1 = displacement * np.cos(azimuth, dtype = 'float64') * np.cos(elevation, dtype = 'float64')
 x2 = displacement * np.sin(azimuth, dtype = 'float64') * np.cos(elevation, dtype = 'float64')
 x3 = displacement * np.sin(elevation, dtype = 'float64')
-array5 = np.stack([x1, x2, x3], axis = 1)
+solid_sphere = np.stack([x1, x2, x3], axis = 1)
 del rng, displacement, azimuth, elevation, x1, x2, x3
 
-datasets['s_curve']['array'] = array1
-datasets['swiss_roll']['array'] = array2
-datasets['mobius_strip']['array'] = array3
-datasets['hollow_sphere']['array'] = array4
-datasets['solid_sphere']['array'] = array5
+#stored
+for l in datasets.keys():
+    exec(f'datasets[\'{l}\'][\'array\'] = {l}')
 
 for l in datasets.keys():
     xlim, ylim, zlim = lims(datasets[l]['array'])
@@ -239,59 +246,143 @@ for l in datasets.keys():
         datasets[l]['array'][:, 2],
         alpha = 0.3,
         )
-    datasets[l]['figure'] = fig
+    datasets[l]['figure'] = fig    #stored
 del xlim, ylim, zlim, fig, ax, plot
 
 #saved
 for l in datasets.keys():
     datasets[l]['figure'].savefig(f'figures/{l}_data.png', dpi = 300)
 
-del seed, array1, array2, array3, array4, array5
+del seed
 
 
 # - estimation -
 
-parses = []
 for l in datasets.keys():
 
     begin = time.time()
-    estimated, parse = estimator.estimate(datasets[l]['array'], return_parse = True)
+    estimated = estimator.estimate(datasets[l]['array'])
     end = time.time()
     lapse = end - begin
-
     logger.info(f'Estimated: {estimated}')
     logger.info(f'    Lapse: {lapse:.2f} (s)')
 
+    #stored
     datasets[l]['estimated'] = estimated
-    datasets[l]['lapse'] = lapse
-    parses.append(parse)
+    datasets[l]['lapses']['estimation'] = lapse
 
-del begin, estimated, parse, end, lapse
-
-#tilesize dependency
-fig = plt.figure(layout = 'constrained', figsize = (6, 12))
-gs = fig.add_gridspec(nrows = len(parses), ncols = 1)
-for l in range(len(parses)):
-    lengths = parses[l][:, 0].copy()
-    connections = parses[l][:, 1].copy()
-    estimations = np.log(np.float64(1) + connections) / np.log(3, dtype = 'float64')
-    
-    ax = fig.add_subplot(gs[l])
-    ax.set_box_aspect(0.2)
-    ax.set_xlabel('length')
-    ax.set_ylabel('estimated')
-
-    plot = ax.plot(
-        lengths, estimations,
-        marker = 'o', linestyle = '--',
-        color = 'green',
-        )
-
-del gs, lengths, connections, estimations, ax, plot
-
-fig.savefig('figures/tilesize_dependency.png', dpi = 300)
-
-del fig
+del begin, estimated, end, lapse
 
 
 # - training -
+
+bottlenecks = [1, 2, 3, 4, 5]
+epochs = 50
+batch_size = 32
+colors = {
+    1:'red',
+    2:'green',
+    3:'burlywood',
+    4:'cyan',
+    5:'pink',
+    }
+
+for l in datasets.keys():
+
+    fig = plt.figure(layout = 'constrained')
+    gs = fig.add_gridspec(nrows = 2, ncols = 1)
+    gs_2 = gs[-1+2].subgridspec(nrows = 1, ncols = 2)
+
+    #bottlenecks cycled
+    training_losses = {}
+    for ll in bottlenecks:
+
+        data = tf.constant(datasets[l]['array'], dtype = 'float32')
+
+        autoencoder = Autoencoder(ll)
+        autoencoder.compile(optimizer = 'adam', loss = 'mse')
+
+        logger.info(f'{l} with bottleneck {ll}')
+        begin = time.time()
+        history = autoencoder.fit(
+            data, data,
+            batch_size = 32,
+            epochs = 50,
+            shuffle = True,
+            )
+        end = time.time()
+        lapse = end - begin
+        logger.info(f'elapsed time: {lapse:.2f} (s)')
+
+        training_losses[ll] = history.history['loss']
+
+        reconstructed = autoencoder.predict(data)
+        reconstructed = reconstructed.astype('float64')
+
+        #stored
+        datasets[l]['lapses'][f'AE{ll}'] = lapse
+        datasets[l][f'reconstructed{ll}'] = reconstructed
+
+
+    ax_1 = fig.add_subplot(gs[-1+1])
+    ax_1.set_box_aspect(0.5)
+    ax_1.set_title('Training Loss')
+    ax_1.set_xlabel('epoch')
+    ax_1.set_ylabel('loss')
+    plots_1 = []
+    for ll in bottlenecks:
+        plots_1.append(ax_1.plot(
+            np.arange(epochs)+1, training_losses[ll],
+            color = colors[ll],
+            label = f'{ll}-dimensional',
+            ))
+    ax_1.legend()
+
+    xlim, ylim, zlim = lims(datasets[l]['array'])
+
+    #1-dimensional compression
+    ax_2 = fig.add_subplot(gs_2[-1+1], projection = '3d')
+    ax_2.set_box_aspect([1, 1, 1])
+    ax_2.set_xlim(*xlim)
+    ax_2.set_ylim(*ylim)
+    ax_2.set_zlim(*zlim)
+    ax_2.set_xticklabels([])
+    ax_2.set_yticklabels([])
+    ax_2.set_zticklabels([])
+    ax_2.view_init(azim = 75, elev = 20)
+    plot_2 = ax_2.scatter(
+        datasets[l]['reconstructed1'][:, 0],
+        datasets[l]['reconstructed1'][:, 1],
+        datasets[l]['reconstructed1'][:, 2],
+        c = colors[1],
+        alpha = 0.3,
+        )
+    
+    #2-dimensional compression
+    ax_3 = fig.add_subplot(gs_2[-1+2], projection = '3d')
+    ax_3.set_box_aspect([1, 1, 1])
+    ax_3.set_xlim(*xlim)
+    ax_3.set_ylim(*ylim)
+    ax_3.set_zlim(*zlim)
+    ax_3.set_xticklabels([])
+    ax_3.set_yticklabels([])
+    ax_3.set_zticklabels([])
+    ax_3.view_init(azim = 75, elev = 20)
+    plot_3 = ax_3.scatter(
+        datasets[l]['reconstructed2'][:, 0],
+        datasets[l]['reconstructed2'][:, 1],
+        datasets[l]['reconstructed2'][:, 2],
+        c = colors[2],
+        alpha = 0.3,
+        )
+
+    fig.savefig(f'figures/{l}_plateau.png', dpi = 300)
+
+del fig, gs, gs_2, training_losses, data, autoencoder, begin, history, end, lapse, reconstructed, xlim, ylim, zlim, ax_2, plot_2, ax_3, plot_3
+
+del bottlenecks, epochs, batch_size, colors
+
+
+for l in datasets.keys():
+    print(f'\n\nDataset: {l}')
+    pprint.pprint(datasets[l])
