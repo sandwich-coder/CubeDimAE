@@ -128,7 +128,7 @@ Solid sphere | 10.12 | 7.33 | 17.45
 
 ### Environment
 
-Platform: 'darwin'<br>
+Platform: 'linux' or 'darwin'
 Package Manager: Conda<br>
 ```yaml
 name: CubeDimAE
