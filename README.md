@@ -165,10 +165,9 @@ Experiments were run on a Macbook M2 pro.
 
 ### Environment
 
-Platform: 'darwin'
-<br>Package Manager: Conda
-<br>Packages:
-
+Platform: 'darwin'<br>
+Package Manager: Conda<br>
+Packages:<br>
 ```conda
 python=3.11.0
 
@@ -183,7 +182,7 @@ Later versions and different platforms will likely have no issue.
 
 ### Run
 
-Datasets: config.yml
+Datasets: config.yml<br>
 ```yaml
 datasets:
   s_curve: True
