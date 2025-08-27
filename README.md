@@ -138,6 +138,7 @@ python=3.11.0
 numpy=1.23.5
 matplotlib=3.9.2
 tensorflow=2.12.0
+tqdm=4.66.5
 pyyaml=6.0.2
 scikit-learn=1.5.2
 ```
