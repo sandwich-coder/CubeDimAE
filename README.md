@@ -162,12 +162,14 @@ python experiment.py --config config.yml
 ## Citation
 
 ```bibtex
-@inproceedings{kim2025cubedimae,
-  title={CubeDimAE: Automatic Autoencoder Generation based on Dimension Estimation by Tessellation},
+@INPROCEEDINGS{10936902,
   author={Kim, Byungrok and Hwang, Myeong-Ha and Joo, Jeonghyun and Kwon, YooJin and Lee, Hyunwoo},
-  booktitle={2025 IEEE International Conference on Big Data and Smart Computing (BigComp)},
-  pages={20--25},
+  booktitle={2025 IEEE International Conference on Big Data and Smart Computing (BigComp)}, 
+  title={CubeDimAE: Automatic Autoencoder Generation based on Dimension Estimation by Tessellation}, 
   year={2025},
-  organization={IEEE}
-}
+  volume={},
+  number={},
+  pages={20-25},
+  keywords={Dimensionality reduction;Accuracy;Source coding;Autoencoders;Supervised learning;Noise;Estimation;Big Data;Unsupervised learning;Anomaly detection;autoencoder;intrinsic dimension;tessellation;dimension estimation},
+  doi={10.1109/BigComp64353.2025.00013}}
 ```
