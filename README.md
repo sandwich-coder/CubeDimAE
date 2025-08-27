@@ -77,13 +77,13 @@ The algorithm correctly estimated the dimensions of all the datasets.
 
 <div align="center">
 
-| Dataset | Dimension | Estimated (exact) |
-| --- | --- | --- |
-| S curve | 2 | 2 (2.27) |
-| Swiss roll | 2 | 2 (2.26) |
-| Möbius strip | 2 | 2 (2.25) |
-| Hollow sphere | 2 | 2 (2.33) |
-| Solid sphere | 3 | 3 (2.87) |
+Dataset | Dimension | Estimated (exact)
+---: | :---: | :---:
+S curve | 2 | 2 (2.27)
+Swiss roll | 2 | 2 (2.26)
+Möbius strip | 2 | 2 (2.25)
+Hollow sphere | 2 | 2 (2.33)
+Solid sphere | 3 | 3 (2.87)
 
 </div>
 
@@ -98,23 +98,23 @@ When we do not know the proper latent dimension for the input dataset, we would 
 
 ### Baseline
 
-| Dataset | AE1 | AE2 | AE3 | Total (*s*) |
-| --- | --- | --- | --- | --- |
-| S curve | 7.29 | 7.25 | 7.66 | 22.2 |
-| Swiss roll | 6.92 | 7.06 | 7.34 | 21.32 |
-| Möbius strip | 6.94 | 7.08 | 7.32 | 21.34 |
-| Hollow sphere | 7.06 | 7.07 | 7.35 | 21.48 |
-| Solid sphere | 6.97 | 7.09 | 7.33 | 21.39 |
+Dataset | AE1 | AE2 | AE3 | Total (*s*)
+---: | ---: | ---: | ---: | ---:
+S curve | 7.29 | 7.25 | 7.66 | 22.20
+Swiss roll | 6.92 | 7.06 | 7.34 | 21.32
+Möbius strip | 6.94 | 7.08 | 7.32 | 21.34
+Hollow sphere | 7.06 | 7.07 | 7.35 | 21.48
+Solid sphere | 6.97 | 7.09 | 7.33 | 21.39
 
 ### CubeDimAE (≈40% saved)
 
-| Dataset | Estimation | AE | Total (*s*) |
-| --- | --- | --- | --- |
-| S curve | 3.2 | 7.25 | 10.45 |
-| Swiss roll | 5.42 | 7.06 | 12.48 |
-| Möbius strip | 3.03 | 7.08 | 10.11 |
-| Hollow sphere | 5.67 | 7.07 | 12.74 |
-| Solid sphere | 10.12 | 7.33 | 17.45 |
+Dataset | Estimation | AE | Total (*s*)
+---: | ---: | ---: | ---:
+S curve | 3.20 | 7.25 | 10.45
+Swiss roll | 5.42 | 7.06 | 12.48
+Möbius strip | 3.03 | 7.08 | 10.11
+Hollow sphere | 5.67 | 7.07 | 12.74
+Solid sphere | 10.12 | 7.33 | 17.45
 
 </div>
 
