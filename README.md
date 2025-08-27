@@ -11,6 +11,8 @@
 
 [Contribution](#contribution)
 <br>
+[**Reproduction**](#reproduction)
+<br>
 [Introduction](#introduction)
 <br>
 [Motivation](#motivation)
@@ -20,8 +22,6 @@
 [Datasets](#datasets)
 <br>
 [Evaluation](#evaluation)
-<br>
-[**Reproduction**](#reproduction)
 <br>
 [Citation](#citation)
 
@@ -34,6 +34,44 @@
 
 🚀 **40% time saving in hyper-parameter tuning compared with the baseline.**
 
+## Reproduction
+
+> [!NOTE]
+> **_The scripts were written solely for reproducing the experimental results. They were not designed for reuse._**
+
+### Environment
+
+Platform: 'linux' or 'darwin'
+<br>
+Package Manager: Conda
+```yaml
+name: CubeDimAE
+channels:
+  - defaults
+dependencies:
+  - python=3.11.0
+  - numpy=1.23.5
+  - matplotlib=3.9.2
+  - tensorflow=2.12.0
+  - tqdm=4.66.5
+  - pyyaml=6.0.2
+  - scikit-learn=1.5.2
+```
+
+### Run
+
+```bash
+git clone https://github.com/sandwich-coder/CubeDimAE
+cd CubeDimAE
+
+conda update conda
+conda env create --file environment.yml
+conda activate CubeDimAE
+
+python experiment.py --config config.yml
+```
+
+&nbsp;
 ## Introduction
 
 Autoencoder is the first choice in AI-based anomaly detection tasks. It has been recognized that the optimal bottleneck of an autoencoder is the intrinsic dimension of the input. Traditionally the optimal point is found through trial-and-error, putting large amount of time and effort into hyper-parameter tuning. This paper presents a method to estimate the intrinsic dimension in advance to automate the process. We have tested on five synthetic datasets as a proof-of-concept and shown its feasibility with 100% accuracy and 40% reduction in time.
@@ -127,43 +165,6 @@ Hollow sphere | 5.67 | 7.07 | 12.74
 Solid sphere | 10.12 | 7.33 | 17.45
 
 </div>
-
-## Reproduction
-
-> [!NOTE]
-> **_The scripts were written solely for reproducing the experimental results. They were not designed for reuse._**
-
-### Environment
-
-Platform: 'linux' or 'darwin'
-<br>
-Package Manager: Conda
-```yaml
-name: CubeDimAE
-channels:
-  - defaults
-dependencies:
-  - python=3.11.0
-  - numpy=1.23.5
-  - matplotlib=3.9.2
-  - tensorflow=2.12.0
-  - tqdm=4.66.5
-  - pyyaml=6.0.2
-  - scikit-learn=1.5.2
-```
-
-### Run
-
-```bash
-git clone https://github.com/sandwich-coder/CubeDimAE
-cd CubeDimAE
-
-conda update conda
-conda env create --file environment.yml
-conda activate CubeDimAE
-
-python experiment.py --config config.yml
-```
 
 ## Citation
 
