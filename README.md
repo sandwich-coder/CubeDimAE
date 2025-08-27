@@ -7,8 +7,6 @@
 
 </div>
 
-<!--
-
 ### Table of Contents
 
 [Contribution](#contribution)
@@ -26,8 +24,6 @@
 [Evaluation](#evaluation)
 <br>
 [Citation](#citation)
-
---->
 
 &nbsp;
 ## Contribution
@@ -74,8 +70,6 @@ conda activate CubeDimAE
 
 python experiment.py --config config.yml
 ```
-
-<!--
 
 &nbsp;
 ## Introduction
@@ -171,8 +165,6 @@ Hollow sphere | 5.67 | 7.07 | 12.74
 Solid sphere | 10.12 | 7.33 | 17.45
 
 </div>
-
---->
 
 ## Citation
 
