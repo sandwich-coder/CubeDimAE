@@ -7,6 +7,8 @@
 
 </div>
 
+<!--
+
 ### Table of Contents
 
 [Contribution](#contribution)
@@ -24,6 +26,8 @@
 [Evaluation](#evaluation)
 <br>
 [Citation](#citation)
+
+-->
 
 &nbsp;
 ## Contribution
