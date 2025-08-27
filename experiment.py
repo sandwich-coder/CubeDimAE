@@ -15,21 +15,17 @@ mpl.use('Agg')
 import tensorflow as tf
 from tensorflow.keras import layers
 
-import pprint
+import yaml
 from sklearn.datasets import make_s_curve, make_swiss_roll
 
 from cube_dim import CubeDim
 
 # - initialized -
 
-#datalist
-datalist = [
-    's_curve',
-    'swiss_roll',
-    'mobius_strip',
-    'hollow_sphere',
-    'solid_sphere',
-    ]
+config = yaml.load(
+    open('config.yml', 'r'),
+    Loader = yaml.FullLoader,
+    )
 
 #functions
 def translate3d(points, move_x = 0, move_y = 0, move_z = 0):
@@ -175,8 +171,9 @@ class Autoencoder(tf.keras.Model):
 # - datasets -
 
 datasets = {}
-for l in datalist:
-    datasets[l] = {}
+for l in config['datasets'].keys():
+    if config['datasets'][l]:
+        datasets[l] = {}
 
 for l in datasets.keys():
     datasets[l]['lapses'] = {}
@@ -384,5 +381,16 @@ del bottlenecks, epochs, batch_size, colors
 
 
 for l in datasets.keys():
-    print(f'\n\nDataset: {l}')
-    pprint.pprint(datasets[l])
+    print(f'Dataset: {l}\n')
+    
+    #estimations
+    print('Estimated: {estimated}'.format(estimated = datasets[l]['estimated']))
+
+    #lapses
+    print('Lapses:')
+    for ll in datasets[l]['lapses'].keys():
+        print('  {part}: {duration:.2f} s'.format(
+            part = ll,
+            duration = datasets[l]['lapses'][ll],
+            ))
+    print('\n')
