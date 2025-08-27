@@ -123,7 +123,7 @@ Solid sphere | 10.12 | 7.33 | 17.45
 Experiments were run on a Macbook M2 pro.
 
 > [!NOTE]
-> **_The scripts were written solely for reproducing the experimental results. They were not designed for reuse._**
+> The scripts were written solely for reproducing the experimental results. They were not designed for reuse.
 
 ### Environment
 
