@@ -9,18 +9,14 @@
 
 ### Table of Contents
 
-1. [Introduction](#introduction)
-2. [Contribution](#contribution)
+1. [Contribution](#contribution)
+2. [Introduction](#introduction)
 3. [Motivation](#motivation)
 4. [Overview](#overview)
 5. [Datasets](#datasets)
 6. [Evaluation](#evaluation)
 7. [**Reproduction**](#reproduction)
 8. [Citation](#citation)
-
-## Introduction
-
-Autoencoder is the first choice in AI-based anomaly detection tasks. It has been recognized that the optimal bottleneck of an autoencoder is the intrinsic dimension of the input. Traditionally the optimal point is found through trial-and-error, putting large amount of time and effort into hyper-parameter tuning. This paper presents a method to estimate the intrinsic dimension in advance to automate the process. We have tested on five synthetic datasets as a proof-of-concept and shown its feasibility with 100% accuracy and 40% reduction in time.
 
 ## Contribution
 
@@ -29,6 +25,10 @@ Autoencoder is the first choice in AI-based anomaly detection tasks. It has been
 🎯 **100% accuracy on five synthetic benchmark datasets.**
 
 🚀 **40% time saving in hyper-parameter tuning compared with the baseline.**
+
+## Introduction
+
+Autoencoder is the first choice in AI-based anomaly detection tasks. It has been recognized that the optimal bottleneck of an autoencoder is the intrinsic dimension of the input. Traditionally the optimal point is found through trial-and-error, putting large amount of time and effort into hyper-parameter tuning. This paper presents a method to estimate the intrinsic dimension in advance to automate the process. We have tested on five synthetic datasets as a proof-of-concept and shown its feasibility with 100% accuracy and 40% reduction in time.
 
 ## Motivation
 
