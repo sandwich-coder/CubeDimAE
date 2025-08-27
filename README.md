@@ -16,8 +16,7 @@
 - **cubedimae.pdf**: The paper published at **BigComp2025** on February.
 - cube_dim.py: The implementation of the algorithm.
 - experiment.py: The experiment script used for the paper.
-- conda-requirement.txt: The packages required for the implementation and experiment.
-- materials: The figures and plotting script for this README.
+- environment.yml: The packages used for the implementation and experiment.
 
 ## Introduction
 
