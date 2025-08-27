@@ -3,7 +3,7 @@
 # CubeDimAE: Automatic Autoencoder Generation based on Dimension Estimation by Tessellation
 
 [![Paper](https://img.shields.io/badge/paper-BigComp2025-blue.svg)](https://ieeexplore.ieee.org/document/10936902)
-[![Paper](https://img.shields.io/badge/Paper-PDF-red)](./cubedimae.pdf)
+[![Paper](https://img.shields.io/badge/Paper-PDF-red)](cubedimae.pdf)
 
 </div>
 
