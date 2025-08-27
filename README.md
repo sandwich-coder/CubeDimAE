@@ -141,7 +141,7 @@ tqdm=4.66.5
 pyyaml=6.0.2
 scikit-learn=1.5.2
 ```
-<br>Later versions and different platforms will likely have no issue.
+Later versions and different platforms will likely have no issue.
 
 ### Run
 
