@@ -165,6 +165,7 @@ Experiments were run on a Macbook M2 pro.
 
 ### Environment
 
+
 Platform: 'darwin'<br>
 Package Manager: Conda<br>
 Packages:<br>
@@ -182,23 +183,13 @@ Later versions and different platforms will likely have no issue.
 
 ### Run
 
-Datasets: config.yml<br>
-```yaml
-datasets:
-  s_curve: True
-  swiss_roll: True
-  mobius_strip: True
-  hollow_sphere: True
-  solid_sphere: True
-```
-
 
 ```bash
 conda update conda
 conda env create --file environment.yml
 conda activate CubeDimAE
 
-python experiment.py
+python experiment.py --config config.yml
 ```
 
 

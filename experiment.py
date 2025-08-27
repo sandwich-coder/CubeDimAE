@@ -5,6 +5,7 @@ import time
 import logging
 logging.basicConfig(level = 'INFO')
 logger = logging.getLogger(name = 'experiment')
+import argparse
 
 import numpy as np
 import matplotlib as mpl
@@ -22,8 +23,12 @@ from cube_dim import CubeDim
 
 # - initialized -
 
+parser = argparse.ArgumentParser()
+parser.add_argument('-c', '--config', required = True)
+args = parser.parse_args()
+
 config = yaml.load(
-    open('config.yml', 'r'),
+    open(args.config, 'r'),
     Loader = yaml.FullLoader,
     )
 
@@ -106,6 +111,11 @@ def voxel(data, length, return_colors = False, return_limits = True):
 
 #directories
 os.makedirs('figures', exist_ok = True)
+
+del parser, args
+
+
+# - estimator and autoencoder
 
 #estimator
 estimator = CubeDim()
