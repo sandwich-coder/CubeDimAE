@@ -124,7 +124,7 @@ When we do not know the proper latent dimension for the input dataset, we would 
 Experiments were run on a Macbook M2 pro.
 
 > [!NOTE]
-> The scripts were written solely for reproducing the experimental results. They were not designed for reuse.
+> *The scripts were written solely for reproducing the experimental results. They were not designed for reuse.*
 
 ### Environment
 
