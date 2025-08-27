@@ -1,9 +1,6 @@
 # CubeDimAE
 
-
-
 ## Table of Contents
-
 
 1. [Introduction](#introduction)
 2. [Contribution](#contribution)
@@ -14,7 +11,6 @@
 7. [Reproduction](#reproduction)
 8. [Citation](#citation)
 
-
 ### Files
 
 - **cubedimae.pdf**: The paper published at **BigComp2025** on February.
@@ -23,29 +19,19 @@
 - conda-requirement.txt: The packages required for the implementation and experiment.
 - materials: The figures and plotting script for this README.
 
-
-
 ## Introduction
-
 
 Autoencoder is the first choice in AI-based anomaly detection tasks. It has been recognized that the optimal bottleneck of an autoencoder is the intrinsic dimension of the input. Traditionally the optimal point is found through trial-and-error, putting large amount of time and effort into hyper-parameter tuning. This paper presents a method to estimate the intrinsic dimension in advance to automate the bottleneck tuning. We have tested on five synthetic datasets as a proof-of-concept and shown its feasibility with 100% accuracy and 40% reduction in time.
 
-
-
 ## Contribution
-
 
 - Automatation of the bottleneck tuning of autoencoder network.
 - 100% accuracy on five synthetic datasets.
 - 40% time saving compared with the baseline.
 
-
-
 ## Motivation
 
-
 Autoencoder's reconstruction performance drops drastically under the dataset's underlying complexity, which means the optimal size of the bottleneck is the dataset's intrinsic dimension. It was desirable to guess that value without trial-and-error.
-
 
 <div align="center">
 
@@ -57,11 +43,8 @@ Autoencoder's reconstruction performance drops drastically under the dataset's u
 
 </div>
 
-
-
 &nbsp;
 ## Overview
-
 
 To describe the algorithm in an intuitive manner,
 
@@ -72,13 +55,9 @@ To describe the algorithm in an intuitive manner,
 
 The rationale behind the expression is described in the paper in detail.
 
-
 !['materials/readme_figures/overview.png' not found](materials/readme_figures/overview.png)
 
-
-
 ## Datasets
-
 
 Below are datasets used in the experiments.
 
@@ -90,19 +69,13 @@ Below are datasets used in the experiments.
 
 They are toy datasets whose complexities, or intrinsic dimensions, we all agree on.
 
-
 !['materials/readme_figures/datasets.png' not found](materials/readme_figures/datasets.png)
-
-
 
 ## Evaluation
 
-
 ### Accuracy
 
-
 The algorithm correctly estimated the dimensions of all the datasets.
-
 
 <div align="center">
 
@@ -116,15 +89,12 @@ The algorithm correctly estimated the dimensions of all the datasets.
 
 </div>
 
-
 ### Efficiency
-
 
 When we do not know the proper latent dimension for the input dataset, we would try every possible values. However, we can save significant amount of time training if we know the optimal size of the bottleneck in advance.
 
 - baseline: Trying every possible value, from 1 to 3.
 - **CubeDimAE**: Dimension estimation, followed by training the autoencoder *only* *once*.
-
 
 <div align="center">
 
@@ -138,7 +108,6 @@ When we do not know the proper latent dimension for the input dataset, we would 
 | Hollow sphere | 7.06 | 7.07 | 7.35 | 21.48 |
 | Solid sphere | 6.97 | 7.09 | 7.33 | 21.39 |
 
-
 ### CubeDimAE (≈40% saved)
 
 | Dataset | Estimation | AE | Total (*s*) |
@@ -151,20 +120,14 @@ When we do not know the proper latent dimension for the input dataset, we would 
 
 </div>
 
-
-
 ## Reproduction
 
-
 Experiments were run on a Macbook M2 pro.
-
 
 > [!NOTE]
 > *The scripts are supplementary and were designed for internal experiments.*
 
-
 ### Environment
-
 
 Platform: 'darwin'<br>
 Package Manager: Conda<br>
@@ -180,9 +143,7 @@ scikit-learn=1.5.2
 ```
 Later versions and different platforms will likely have no issue.
 
-
 ### Run
-
 
 ```bash
 conda update conda
@@ -192,10 +153,7 @@ conda activate CubeDimAE
 python experiment.py --config config.yml
 ```
 
-
-
 ## Citation
-
 
 ```bibtex
 @inproceedings{kim2025cubedimae,
