@@ -56,7 +56,7 @@ To describe the algorithm in an intuitive manner,
 
 The rationale behind the expression is described in the paper in detail.
 
-!['materials/readme_figures/overview.png' not found](materials/readme_figures/overview.png)
+!['misc/readme_figures/overview.png' not found](misc/readme_figures/overview.png)
 
 ## Datasets
 
@@ -70,7 +70,7 @@ Below are datasets used in the experiments.
 
 They are toy datasets whose complexities, or intrinsic dimensions, we all agree on.
 
-!['materials/readme_figures/datasets.png' not found](materials/readme_figures/datasets.png)
+!['misc/readme_figures/datasets.png' not found](misc/readme_figures/datasets.png)
 
 ## Evaluation
 
