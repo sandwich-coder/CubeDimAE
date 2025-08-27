@@ -146,6 +146,9 @@ Later versions and different platforms will likely have no issue.
 ### Run
 
 ```bash
+git clone https://github.com/sandwich-coder/CubeDimAE
+cd CubeDimAE
+
 conda update conda
 conda env create --file environment.yml
 conda activate CubeDimAE
