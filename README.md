@@ -121,8 +121,6 @@ Solid sphere | 10.12 | 7.33 | 17.45
 
 ## Reproduction
 
-Experiments were run on a CPU.
-
 > [!NOTE]
 > *The scripts were written solely for reproducing the experimental results. They were not designed for reuse.*
 
