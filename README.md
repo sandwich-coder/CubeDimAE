@@ -1,5 +1,7 @@
 # CubeDimAE
 
+[![Paper](https://img.shields.io/badge/paper-BigComp2025-blue.svg)](https://ieeexplore.ieee.org/document/10936902)
+
 ## Table of Contents
 
 1. [Introduction](#introduction)
