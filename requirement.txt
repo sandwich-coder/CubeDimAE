@@ -1,0 +1,23 @@
+# - Python3.12 -
+
+#essential
+numpy
+scipy
+matplotlib
+
+#common
+pandas
+tensorflow[and-cuda]; sys_platform == 'linux'
+tensorflow; sys_platform == 'darwin'
+xgboost
+rich
+
+#extra
+lightgbm
+tqdm
+pyyaml
+scikit-learn
+seaborn
+
+#datasets
+kagglehub
