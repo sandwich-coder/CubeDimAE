@@ -129,7 +129,6 @@ Experiments were run on a Macbook M2 pro.
 
 Platform: 'darwin'<br>
 Package Manager: Conda<br>
-Packages:<br>
 ```yaml
 name: CubeDimAE
 channels:
