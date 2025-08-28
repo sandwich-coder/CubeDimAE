@@ -119,7 +119,7 @@ They are toy datasets whose complexities, or intrinsic dimensions, we all agree 
 
 ## Evaluation
 
-Machine: Macbook M2 pro CPU
+The experiments were run on a Macbook M2 pro CPU.
 
 ### Accuracy
 
