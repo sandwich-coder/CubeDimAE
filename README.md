@@ -9,21 +9,14 @@
 
 ### Contents
 
-[Contribution](#contribution)
-<br>
-[**Reproduction**](#reproduction)
-<br>
-[Introduction](#introduction)
-<br>
-[Motivation](#motivation)
-<br>
-[Overview](#overview)
-<br>
-[Datasets](#datasets)
-<br>
-[Evaluation](#evaluation)
-<br>
-[Citation](#citation)
+1. [Contribution](#contribution)
+2. [**Reproduction**](#reproduction)
+3. [Introduction](#introduction)
+4. [Motivation](#motivation)
+5. [Overview](#overview)
+6. [Datasets](#datasets)
+7. [Evaluation](#evaluation)
+8. [Citation](#citation)
 
 &nbsp;
 ## Contribution
