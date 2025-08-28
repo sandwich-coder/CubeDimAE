@@ -399,8 +399,8 @@ for l in datasets.keys():
     #lapses
     print('Lapses:')
     for ll in datasets[l]['lapses'].keys():
-        print('  {part}: {duration:.2f} s'.format(
+        print('  {part}: {duration:>5} s'.format(
             part = ll,
-            duration = datasets[l]['lapses'][ll],
+            duration = format(datasets[l]['lapses'][ll], '.2f'),
             ))
     print('\n')
