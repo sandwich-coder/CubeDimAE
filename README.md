@@ -10,7 +10,7 @@
 ### Contents
 
 1. [Contribution](#contribution)
-2. [**Reproduction**](#reproduction)
+2. [**How to Run**](#how-to-run)
 3. [Introduction](#introduction)
 4. [Motivation](#motivation)
 5. [Overview](#overview)
@@ -27,7 +27,7 @@
 
 🚀 **40% time saving in hyper-parameter tuning compared with the baseline.**
 
-## Reproduction
+## How to Run
 
 > [!NOTE]
 > **_The scripts were written solely for reproducing the experimental results. They were not designed for reuse._**
