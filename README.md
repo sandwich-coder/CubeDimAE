@@ -34,7 +34,7 @@
 
 ### Environment
 
-Platform: 'linux' or 'darwin'
+Platform: Linux or MacOS
 <br>
 Package Manager: Conda
 ```yaml
