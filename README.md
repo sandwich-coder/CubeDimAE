@@ -52,6 +52,7 @@ conda activate CubeDimAE
 python experiment.py --config config.yml
 ```
 
+nbsp;
 ## 📚 Table of Contents
 
 1. [Introduction](#introduction)
@@ -61,7 +62,6 @@ python experiment.py --config config.yml
 5. [Evaluation](#evaluation)
 6. [Citation](#citation)
 
-&nbsp;
 ## Introduction
 
 Autoencoder is the first choice in AI-based anomaly detection tasks. It has been recognized that the optimal bottleneck of an autoencoder is the intrinsic dimension of the input. Traditionally the optimal point is found through trial-and-error, putting large amount of time and effort into hyper-parameter tuning. This paper presents a method to estimate the intrinsic dimension in advance to automate the process. We have tested on five synthetic datasets as a proof-of-concept and shown its feasibility with 100% accuracy and 40% reduction in time.
