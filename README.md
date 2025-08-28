@@ -7,7 +7,6 @@
 
 </div>
 
-&nbsp;
 ## Contribution
 
 ⚙️ **Automation of the bottleneck tuning of autoencoder network.**
@@ -53,6 +52,7 @@ conda activate CubeDimAE
 python experiment.py --config config.yml
 ```
 
+&nbsp;
 ## 📚 Table of Contents
 
 1. [Introduction](#introduction)
