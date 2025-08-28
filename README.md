@@ -7,7 +7,7 @@
 
 </div>
 
-### Table of Contents
+### Contents
 
 [Contribution](#contribution)
 <br>
