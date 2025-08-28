@@ -7,17 +7,6 @@
 
 </div>
 
-### 📚 Contents
-
-1. [Contribution](#contribution)
-2. [**How to Run**](#how-to-run)
-3. [Introduction](#introduction)
-4. [Motivation](#motivation)
-5. [Overview](#overview)
-6. [Datasets](#datasets)
-7. [Evaluation](#evaluation)
-8. [Citation](#citation)
-
 &nbsp;
 ## Contribution
 
@@ -63,6 +52,15 @@ conda activate CubeDimAE
 
 python experiment.py --config config.yml
 ```
+
+## 📚 Table of Contents
+
+1. [Introduction](#introduction)
+2. [Motivation](#motivation)
+3. [Overview](#overview)
+4. [Datasets](#datasets)
+5. [Evaluation](#evaluation)
+6. [Citation](#citation)
 
 &nbsp;
 ## Introduction
