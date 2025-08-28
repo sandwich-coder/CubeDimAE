@@ -119,6 +119,8 @@ They are toy datasets whose complexities, or intrinsic dimensions, we all agree 
 
 ## Evaluation
 
+Machine: Macbook M2 pro CPU
+
 ### Accuracy
 
 The algorithm correctly estimated the dimensions of all the datasets.
