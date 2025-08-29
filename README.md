@@ -43,7 +43,9 @@ dependencies:
   - scikit-learn=1.5.2
 ```
 
-#### configuration
+### Run
+
+`config.yml`:
 
 ```yaml
 datasets:
@@ -53,9 +55,7 @@ datasets:
   hollow_sphere: True
   solid_sphere: True
 ```
-
-### Run
-
+&nbsp;
 ```bash
 git clone https://github.com/sandwich-coder/CubeDimAE
 cd CubeDimAE
