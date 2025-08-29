@@ -4,6 +4,7 @@
 
 [![Paper](https://img.shields.io/badge/paper-BigComp2025-blue.svg)](https://ieeexplore.ieee.org/document/10936902)
 [![Paper](https://img.shields.io/badge/Paper-PDF-red)](cubedimae.pdf)
+!['misc/readme_figures/header.png' not found](misc/readme_figures/header.png)
 
 </div>
 
