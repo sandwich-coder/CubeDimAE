@@ -45,7 +45,7 @@ dependencies:
 
 #### configuration
 
-```
+```yaml
 datasets:
   s_curve: True
   swiss_roll: True
