@@ -46,6 +46,12 @@ dependencies:
 #### configuration
 
 ```
+datasets:
+  s_curve: True
+  swiss_roll: True
+  mobius_strip: True
+  hollow_sphere: True
+  solid_sphere: True
 ```
 
 ### Run
