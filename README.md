@@ -43,6 +43,11 @@ dependencies:
   - scikit-learn=1.5.2
 ```
 
+#### configuration
+
+```
+```
+
 ### Run
 
 ```bash
