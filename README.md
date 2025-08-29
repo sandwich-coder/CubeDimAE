@@ -45,7 +45,7 @@ dependencies:
 
 ### Run
 
-`config.yml` : datasets to choose
+`config.yml` :  datasets to choose
 
 ```bash
 git clone https://github.com/sandwich-coder/CubeDimAE
