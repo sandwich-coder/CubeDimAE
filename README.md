@@ -6,7 +6,7 @@
 [![Paper](https://img.shields.io/badge/Paper-PDF-red)](cubedimae.pdf)
 
 <p align="center">
-  <img width="70%" src="misc/readme_figures/header2.png">
+  <img width="90%" src="misc/readme_figures/header2.png">
 </p>
 
 </div>
