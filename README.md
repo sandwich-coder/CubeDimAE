@@ -45,17 +45,8 @@ dependencies:
 
 ### Run
 
-`config.yml`:
+`config.yml`: datasets to choose
 
-```yaml
-datasets:
-  s_curve: True
-  swiss_roll: True
-  mobius_strip: True
-  hollow_sphere: True
-  solid_sphere: True
-```
-&nbsp;
 ```bash
 git clone https://github.com/sandwich-coder/CubeDimAE
 cd CubeDimAE
