@@ -70,7 +70,7 @@ python experiment.py --config config.yml
 &nbsp;
 ## 📚 Table of Contents
 
-What follows is a brief description of the paper.
+*What follows is a brief description of the paper.*
 
 1. [Introduction](#introduction)
 2. [Motivation](#motivation)
