@@ -45,8 +45,6 @@ dependencies:
 
 ### Run
 
-`config.yml` :  datasets to choose
-
 ```bash
 git clone https://github.com/sandwich-coder/CubeDimAE
 cd CubeDimAE
@@ -57,6 +55,8 @@ conda activate CubeDimAE
 
 python experiment.py --config config.yml
 ```
+
+`config.yml` :  datasets to choose
 
 &nbsp;
 ## 📚 Table of Contents
