@@ -55,7 +55,7 @@ conda activate CubeDimAE
 
 python experiment.py --config config.yml
 ```
-
+<br>
 `config.yml` :  datasets to choose
 
 &nbsp;
