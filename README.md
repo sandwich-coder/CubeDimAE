@@ -28,7 +28,7 @@
 
 Platform: Linux or MacOS
 <br>
-Package Manager: Conda
+Package Manager: Anaconda
 ```yaml
 name: CubeDimAE
 channels:
